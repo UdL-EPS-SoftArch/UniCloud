@@ -6,6 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {AboutComponent} from './about/about.component';
+import { RatingComponent } from './rating/rating.component';
 import {NotFoundComponent} from './error-handler/error-alert/not-found.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
@@ -29,6 +30,7 @@ import {UserService} from './user/user.service';
     AppComponent,
     NavbarComponent,
     AboutComponent,
+    RatingComponent,
     NotFoundComponent,
     UserListComponent,
     UserDetailComponent,
