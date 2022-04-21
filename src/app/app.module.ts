@@ -23,6 +23,10 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { UniversityEditComponent } from './university/university-edit/university-edit.component';
+import { UniversityCreateComponent } from './university/university-create/university-create.component';
+import { UniversitySearchComponent } from './university/university-search/university-search.component';
+import { UniversityListComponent } from './university/university-list/university-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import {UserService} from './user/user.service';
     UserRegisterComponent,
     UserEditComponent,
     UserDeleteComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    UniversityEditComponent,
+    UniversityCreateComponent,
+    UniversitySearchComponent,
+    UniversityListComponent
   ],
   imports: [
     BrowserModule,
