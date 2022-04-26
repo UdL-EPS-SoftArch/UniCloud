@@ -6,7 +6,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {AboutComponent} from './about/about.component';
-import { RatingComponent } from './rating/rating.component';
 import {NotFoundComponent} from './error-handler/error-alert/not-found.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
@@ -24,13 +23,18 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { RatingCreateComponent } from './rating/rating-create/rating-create.component';
+import { RatingDeleteComponent } from './rating/rating-delete/rating-delete.component';
+import { RatingModifyComponent } from './rating/rating-modify/rating-modify.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AboutComponent,
-    RatingComponent,
+    RatingCreateComponent,
+    RatingDeleteComponent,
+    RatingModifyComponent,
     NotFoundComponent,
     UserListComponent,
     UserDetailComponent,
