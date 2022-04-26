@@ -9,6 +9,9 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
+import { UniversityDetailComponent} from './university/university-detail/university-detail.component';
+import { UniversityEditComponent} from './university/university-edit/university-edit.component';
+import { UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -16,7 +19,9 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities/:id', component: UserEditComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/:id', component: UniversityDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInGuard]},
   { path: 'universities', component: UniversityListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},

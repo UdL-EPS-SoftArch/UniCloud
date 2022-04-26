@@ -2,7 +2,7 @@ import { HateoasResource, Resource } from '@lagoshny/ngx-hateoas-client';
 
 @HateoasResource('universities')
 export class University extends Resource{
-  id: BigInteger;
+  id: string;
   name: string;
   acronym: string;
   country: string;
