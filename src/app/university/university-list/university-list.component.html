@@ -1,19 +1,19 @@
 <div class="card mb-1" *ngFor="let university of universities">
-  <div class="card-block row m-1 col-12">
+  <div class="card-block row">
     <div class="card-body row align-items-center">
-      <div class="col-6 mt-1">
+      <div class="col">
         <h6 class="card-subtitle text-muted">University</h6>
         <a class="card-text" [routerLink]="['/universities', university.id]">{{university.name}}</a>
       </div>
-      <div class="col-6 mt-1">
+      <div class="col">
         <h6 class="card-subtitle text-muted">Acronym</h6>
         <p class="card-text">{{university.acronym}}</p>
       </div>
-      <div class="col-6 mt-1">
+      <div class="col">
         <h6 class="card-subtitle text-muted">Country</h6>
         <p class="card-text">{{university.country}}</p>
       </div>
-      <div class="col-6 mt-1">
+      <div class="col">
         <h6 class="card-subtitle text-muted">City</h6>
         <p class="card-text">{{university.city}}</p>
       </div>

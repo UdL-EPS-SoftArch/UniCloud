@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {UniversityService} from '../university.service';
+import { University } from '../university';
+import {OperatorFunction} from 'rxjs';
 
 @Component({
   selector: 'app-university-search',
   templateUrl: './university-search.component.html',
   styleUrls: ['./university-search.component.css']
 })
-export class UniversitySearchComponent implements OnInit {
+export class UniversitySearchComponent {
+  @Output() emitResults: EventEmitter<University> = new EventEmitter();
+  searchFailed = false;
+  searching = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private universityService: UniversityService) { }
 
 }
