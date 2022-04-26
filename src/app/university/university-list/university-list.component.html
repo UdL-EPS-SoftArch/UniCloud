@@ -6,6 +6,14 @@
         <a class="card-text" [routerLink]="['/universities', university.id]">{{university.name}}</a>
       </div>
       <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Acronym</h6>
+        <p class="card-text">{{university.acronym}}</p>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Country</h6>
+        <p class="card-text">{{university.country}}</p>
+      </div>
+      <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">City</h6>
         <p class="card-text">{{university.city}}</p>
       </div>
