@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-rating',
@@ -7,11 +8,13 @@ import {Component} from '@angular/core';
 })
 export class RatingCreateComponent {
 
-  constructor() {
-    let btn = document.getElementById("ratingbutton");
-    btn.addEventListener("click", (e:Event) => this.getRating());
-  }
-  getRating(){
+  constructor(private location: Location) {}
 
+  onSubmit(): void {
+    console.log("estem aqui");
+  }
+
+  onCancel(): void {
+    this.location.back();
   }
 }
