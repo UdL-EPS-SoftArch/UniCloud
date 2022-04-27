@@ -27,6 +27,7 @@ import { UniversityEditComponent } from './university/university-edit/university
 import { UniversityCreateComponent } from './university/university-create/university-create.component';
 import { UniversitySearchComponent } from './university/university-search/university-search.component';
 import { UniversityListComponent } from './university/university-list/university-list.component';
+import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UniversityListComponent } from './university/university-list/university
     UniversityEditComponent,
     UniversityCreateComponent,
     UniversitySearchComponent,
-    UniversityListComponent
+    UniversityListComponent,
+    UniversityDetailComponent
   ],
   imports: [
     BrowserModule,

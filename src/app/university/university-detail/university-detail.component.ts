@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UniversityService } from '../university.service';
+import { University } from '../university';
 
 @Component({
   selector: 'app-university-detail',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./university-detail.component.css']
 })
 export class UniversityDetailComponent implements OnInit {
+  public university: University = new University();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute,
+              private universityService: UniversityService){
   }
 
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.universityService.getResource(id).subscribe(
+      university => {
+        this.university = university;
+      });
+  }
 }
