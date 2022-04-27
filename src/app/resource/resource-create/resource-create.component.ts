@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UniResource } from '../uni-resource';
 
 @Component({
   selector: 'app-resource-create',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resource-create.component.css']
 })
 export class ResourceCreateComponent implements OnInit {
+  public resource: UniResource;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.resource = new UniResource();
   }
 
 }
