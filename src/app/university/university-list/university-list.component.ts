@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { University } from '../university';
 import { UniversityService } from '../university.service';
-import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
+import {PagedResourceCollection, ResourceCollection} from '@lagoshny/ngx-hateoas-client';
 @Component({
   selector: 'app-university-list',
   templateUrl: './university-list.component.html',
@@ -24,6 +24,13 @@ export class UniversityListComponent implements OnInit {
         this.universities = page.resources;
         this.totalUniversities = page.totalElements;
       });
+
+    /*this.universityService.getCollection({ sort: { name: 'ASC'} }).subscribe(
+      (universities: ResourceCollection<University>) => {
+        this.universities = universities.resources;
+        this.totalUniversities = this.universities.length;
+        this.totalUniversities = universities.totalElements;
+      });*/
   }
 
   changePage(): void{
@@ -31,7 +38,8 @@ export class UniversityListComponent implements OnInit {
       (page: PagedResourceCollection<University>) => this.universities = page.resources);
   }
 
-  details(university: University): void {
-    this.router.navigate(['universities', university.id]);
+  modifyList(universities: University[]): void{
+    this.universities = universities;
+    this.totalUniversities = this.universities.length;
   }
 }

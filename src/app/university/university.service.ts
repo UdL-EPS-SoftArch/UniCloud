@@ -13,22 +13,27 @@ export class UniversityService extends HateoasResourceOperation<University>{
   }
 
   public findByName(query: string): Observable<ResourceCollection<University>> {
-    return this.searchCollection('findByName', { params: { text: query } });
+    return this.searchCollection('findByName', { params: { name: query } });
   }
 
   public findByCountry(query: string): Observable<ResourceCollection<University>> {
-    return this.searchCollection('findByCountry', { params: { text: query } });
+    return this.searchCollection('findByCountry', { params: { country: query } });
   }
 
   public findByCity(query: string): Observable<ResourceCollection<University>> {
-    return this.searchCollection('findByCity', { params: { text: query } });
+    return this.searchCollection('findByCity', { params: { city: query } });
   }
 
   public findByAcronym(query: string): Observable<ResourceCollection<University>> {
-    return this.searchCollection('findByAcronym', { params: { text: query } });
+    return this.searchCollection('findByAcronym', { params: { acronym: query } });
   }
 
   public findByNameContaining(query: string): Observable<ResourceCollection<University>> {
-    return this.searchCollection('findByNameContaining', { params: { text: query } });
+    return this.searchCollection('findByNameContaining', { params: { name: query } });
+  }
+
+  // tslint:disable-next-line:max-line-length
+  public findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining(name: string, acronym: string, country: string, city: string): Observable<ResourceCollection<University>> {
+    return this.searchCollection('findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining', { params: { name, acronym, country, city}});
   }
 }
