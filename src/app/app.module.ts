@@ -23,6 +23,12 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { SubjectCreateComponent } from './subject/subject-create/subject-create.component';
+import { SubjectDeleteComponent } from './subject/subject-delete/subject-delete.component';
+import { SubjectDetailComponent } from './subject/subject-detail/subject-detail.component';
+import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
+import { SubjectListComponent } from './subject/subject-list/subject-list.component';
+import { SubjectSearchComponent } from './subject/subject-search/subject-search.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import {UserService} from './user/user.service';
     UserRegisterComponent,
     UserEditComponent,
     UserDeleteComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    SubjectCreateComponent,
+    SubjectDeleteComponent,
+    SubjectDetailComponent,
+    SubjectEditComponent,
+    SubjectListComponent,
+    SubjectSearchComponent
   ],
   imports: [
     BrowserModule,
