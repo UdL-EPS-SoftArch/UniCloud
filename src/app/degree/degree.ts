@@ -1,12 +1,12 @@
 import { HateoasResource, Resource } from '@lagoshny/ngx-hateoas-client';
-import { University } from '../.university/university';
+// import { University } from '../.university/university';
 
 @HateoasResource('degrees')
 export class Degree extends Resource{
-  id: BigInteger;
+  id: string;
   name: string;
   faculty: string;
-  university: University;
+  // university: University;
 
   constructor(values: object = {}) {
     super();
