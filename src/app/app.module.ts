@@ -27,7 +27,9 @@ import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.componen
 import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
 import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
-import { AdminFormComponent } from './admin/admin-form/admin-form.component';
+import { AdminFormComponent } from './admin/admin-list/admin-form.component';
+import { AdminListComponent } from './admin/admin-list/admin-list.component';
+import { AdminSearchComponent } from './admin/admin-search/admin-search.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { AdminFormComponent } from './admin/admin-form/admin-form.component';
     AdminCreateComponent,
     AdminEditComponent,
     AdminFormComponent,
+    AdminListComponent,
+    AdminSearchComponent,
   ],
   imports: [
     BrowserModule,
