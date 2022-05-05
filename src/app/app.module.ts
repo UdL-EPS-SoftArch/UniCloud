@@ -24,6 +24,8 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
+import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
+import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.componen
     UserDeleteComponent,
     UserSearchComponent,
     AdminDeleteComponent,
+    AdminDetailComponent,
+    AdminCreateComponent,
   ],
   imports: [
     BrowserModule,
