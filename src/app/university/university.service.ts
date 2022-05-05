@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { HateoasResourceOperation, ResourceCollection } from '@lagoshny/ngx-hateoas-client';
+import {HateoasResourceOperation, PagedResourceCollection, ResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import { University } from './university';
 
 @Injectable({
@@ -33,7 +33,9 @@ export class UniversityService extends HateoasResourceOperation<University>{
   }
 
   // tslint:disable-next-line:max-line-length
-  public findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining(name: string, acronym: string, country: string, city: string): Observable<ResourceCollection<University>> {
-    return this.searchCollection('findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining', { params: { name, acronym, country, city}});
+  public findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining(name: string, acronym: string, country: string, city: string, size: number): Observable<PagedResourceCollection<University>> {
+    // @ts-ignore
+    // tslint:disable-next-line:max-line-length
+    return this.searchPage('findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining', { params: { name, acronym, country, city}, pageParams: { size }});
   }
 }

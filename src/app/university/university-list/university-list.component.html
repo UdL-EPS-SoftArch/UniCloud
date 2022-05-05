@@ -1,4 +1,4 @@
-<app-university-search (emitResults)="modifyList($event)"></app-university-search>
+<app-university-search [pageSize] = "pageSize" (emitResults)="modifyList($event)"></app-university-search>
 <div class="card mb-1" *ngFor="let university of universities">
   <div class="card-block row">
     <div class="card-body row align-items-center">
@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<!--<ngb-pagination class="d-flex justify-content-center"
+<ngb-pagination class="d-flex justify-content-center"
                 [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalUniversities"
-                (pageChange)="changePage()"></ngb-pagination>-->
+                (pageChange)="changePage()"></ngb-pagination>
 

@@ -9,8 +9,9 @@ import {PagedResourceCollection, ResourceCollection} from '@lagoshny/ngx-hateoas
   styleUrls: ['./university-list.component.css']
 })
 export class UniversityListComponent implements OnInit {
+  public universitiesPagedResource: PagedResourceCollection<University>;
   public universities: University[] = [];
-  public pageSize = 5;
+  public pageSize = 2;
   public page = 1;
   public totalUniversities = 0;
 
@@ -19,8 +20,9 @@ export class UniversityListComponent implements OnInit {
     private universityService: UniversityService) { }
 
   ngOnInit(): void {
-    this.universityService.getPage({pageParams: {size: this.pageSize }, sort: { name: 'ASC'} }).subscribe(
+    this.universityService.getPage({pageParams: {size: this.pageSize }}).subscribe(
       (page: PagedResourceCollection<University>) => {
+        this.universitiesPagedResource = page;
         this.universities = page.resources;
         this.totalUniversities = page.totalElements;
       });
@@ -34,12 +36,17 @@ export class UniversityListComponent implements OnInit {
   }
 
   changePage(): void{
-    this.universityService.getPage( {pageParams: {page: this.page - 1, size: this.pageSize}, sort: {name: 'ASC'} }).subscribe(
-      (page: PagedResourceCollection<University>) => this.universities = page.resources);
+    this.universitiesPagedResource.page(this.page - 1).subscribe
+    ((page: PagedResourceCollection<University>) =>
+    { this.universitiesPagedResource = page;
+      this.universities = page.resources; });
+    /*this.universityService.getPage( {pageParams: {page: this.page - 1, size: this.pageSize}, sort: {name: 'ASC'} }).subscribe(
+      (page: PagedResourceCollection<University>) => this.universities = page.resources);*/
   }
 
-  modifyList(universities: University[]): void{
-    this.universities = universities;
-    this.totalUniversities = this.universities.length;
+  modifyList(universityPagedResource: PagedResourceCollection<University>): void{
+    this.universitiesPagedResource = universityPagedResource;
+    this.universities = this.universitiesPagedResource.resources;
+    this.totalUniversities = this.universitiesPagedResource.totalElements;
   }
 }
