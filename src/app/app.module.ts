@@ -26,6 +26,7 @@ import {UserService} from './user/user.service';
 import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
 import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
 import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
+import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { AdminCreateComponent } from './admin/admin-create/admin-create.componen
     AdminDeleteComponent,
     AdminDetailComponent,
     AdminCreateComponent,
+    AdminEditComponent,
   ],
   imports: [
     BrowserModule,
