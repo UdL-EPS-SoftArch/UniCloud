@@ -23,6 +23,7 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {UserService} from './user/user.service';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    AdminDeleteComponent,
   ],
   imports: [
     BrowserModule,
