@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import { Location } from '@angular/common';
+import {Rating} from '../rating';
+import {Router} from '@angular/router';
+import {RatingService} from '../rating.service';
 
 @Component({
   selector: 'app-rating',
@@ -8,10 +11,15 @@ import { Location } from '@angular/common';
 })
 export class RatingCreateComponent {
 
-  constructor(private location: Location) {}
+  public rating : Rating;
+  constructor(private router: Router, private location: Location, private ratingService: RatingService) {}
+
+  ngOnInit(): void{
+    this.rating = new Rating();
+  }
 
   onSubmit(): void {
-    console.log("estem aqui");
+    this.rating.createResource({ body: this.user }).subscribe(()=> this.router.navigate(['/ratings']));
   }
 
   onCancel(): void {
