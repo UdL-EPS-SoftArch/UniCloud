@@ -27,6 +27,7 @@ import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.componen
 import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
 import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
+import { AdminFormComponent } from './admin/admin-form/admin-form.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
     AdminDetailComponent,
     AdminCreateComponent,
     AdminEditComponent,
+    AdminFormComponent,
   ],
   imports: [
     BrowserModule,
