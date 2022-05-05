@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { University } from '../university';
 import { UniversityService } from '../university.service';
 import {PagedResourceCollection, ResourceCollection} from '@lagoshny/ngx-hateoas-client';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 @Component({
   selector: 'app-university-list',
   templateUrl: './university-list.component.html',
@@ -17,7 +18,9 @@ export class UniversityListComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private universityService: UniversityService) { }
+    private universityService: UniversityService,
+    private authenticationService: AuthenticationBasicService) {
+  }
 
   ngOnInit(): void {
     this.universityService.getPage({pageParams: {size: this.pageSize }, sort: {name: 'ASC'}}).subscribe(
@@ -48,5 +51,9 @@ export class UniversityListComponent implements OnInit {
     this.universitiesPagedResource = universityPagedResource;
     this.universities = this.universitiesPagedResource.resources;
     this.totalUniversities = this.universitiesPagedResource.totalElements;
+  }
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
   }
 }

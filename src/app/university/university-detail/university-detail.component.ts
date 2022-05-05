@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UniversityService } from '../university.service';
 import { University } from '../university';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-university-detail',
@@ -12,7 +13,8 @@ export class UniversityDetailComponent implements OnInit {
   public university: University = new University();
 
   constructor(private route: ActivatedRoute,
-              private universityService: UniversityService){
+              private universityService: UniversityService,
+              private authenticationService: AuthenticationBasicService){
   }
 
   ngOnInit(): void {
@@ -21,5 +23,8 @@ export class UniversityDetailComponent implements OnInit {
       university => {
         this.university = university;
       });
+  }
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
   }
 }
