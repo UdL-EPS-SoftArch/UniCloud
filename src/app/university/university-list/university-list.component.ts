@@ -20,7 +20,7 @@ export class UniversityListComponent implements OnInit {
     private universityService: UniversityService) { }
 
   ngOnInit(): void {
-    this.universityService.getPage({pageParams: {size: this.pageSize }}).subscribe(
+    this.universityService.getPage({pageParams: {size: this.pageSize }, sort: {name: 'ASC'}}).subscribe(
       (page: PagedResourceCollection<University>) => {
         this.universitiesPagedResource = page;
         this.universities = page.resources;
@@ -36,9 +36,9 @@ export class UniversityListComponent implements OnInit {
   }
 
   changePage(): void{
-    this.universitiesPagedResource.page(this.page - 1).subscribe
+    this.universitiesPagedResource.customPage({pageParams: {page: this.page - 1, size: this.pageSize },  sort: {name: 'ASC'}}).subscribe
     ((page: PagedResourceCollection<University>) =>
-    { this.universitiesPagedResource = page;
+    { // this.universitiesPagedResource = page;
       this.universities = page.resources; });
     /*this.universityService.getPage( {pageParams: {page: this.page - 1, size: this.pageSize}, sort: {name: 'ASC'} }).subscribe(
       (page: PagedResourceCollection<University>) => this.universities = page.resources);*/

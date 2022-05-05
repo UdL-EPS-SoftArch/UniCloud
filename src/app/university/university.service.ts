@@ -36,6 +36,6 @@ export class UniversityService extends HateoasResourceOperation<University>{
   public findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining(name: string, acronym: string, country: string, city: string, size: number): Observable<PagedResourceCollection<University>> {
     // @ts-ignore
     // tslint:disable-next-line:max-line-length
-    return this.searchPage('findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining', { params: { name, acronym, country, city}, pageParams: { size }});
+    return this.searchPage('findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining', { params: { name, acronym, country, city}, pageParams: { size }, sort: {name: 'ASC'}});
   }
 }
