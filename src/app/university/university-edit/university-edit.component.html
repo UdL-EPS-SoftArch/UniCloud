@@ -1,0 +1,41 @@
+<form id="university-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Name input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="name">University Name*</label>
+      <input id="name" name="name" type="text" class="form-control" required [(ngModel)]="university.name">
+      <div class="invalid-feedback">An university name is required</div>
+    </div>
+
+    <!-- Acronym input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="acronym">Acronym*</label>
+      <input id="acronym" name="acronym" type="text" class="form-control" required [(ngModel)]="university.acronym">
+      <div class="invalid-feedback">An acronym is required</div>
+    </div>
+
+    <!-- City input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="city">City*</label>
+      <input id="city" name="city" type="text" class="form-control" required [(ngModel)]="university.city">
+      <div class="invalid-feedback">A city is required</div>
+    </div>
+
+    <!-- Country input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="country">Country*</label>
+      <input id="country" name="country" type="text" class="form-control" required [(ngModel)]="university.country">
+      <div class="invalid-feedback">An country name is required</div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group fa-pull-right">
+      <button id="userDetail" type="button" [routerLink]="['/universities/'+getCurrentUniversityId()]"
+              class="btn btn-outline-primary">Back</button>
+      <button id="submit" type="submit" [disabled]="!form.form.valid"
+              class="btn btn-success ms-3">Submit</button>
+    </div>
+
+  </fieldset>
+</form>
