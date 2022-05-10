@@ -29,6 +29,12 @@ import { DegreeEditComponent } from './degree/degree-edit/degree-edit.component'
 import { DegreeListComponent } from './degree/degree-list/degree-list.component';
 import { DegreeDeleteComponent } from './degree/degree-delete/degree-delete.component';
 import { DegreeSearchComponent } from './degree/degree-search/degree-search.component';
+import { UniversityEditComponent } from './university/university-edit/university-edit.component';
+import { UniversityCreateComponent } from './university/university-create/university-create.component';
+import { UniversitySearchComponent } from './university/university-search/university-search.component';
+import { UniversityListComponent } from './university/university-list/university-list.component';
+import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
+import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,13 @@ import { DegreeSearchComponent } from './degree/degree-search/degree-search.comp
     DegreeEditComponent,
     DegreeListComponent,
     DegreeDeleteComponent,
-    DegreeSearchComponent
+    DegreeSearchComponent,
+    UniversityEditComponent,
+    UniversityCreateComponent,
+    UniversitySearchComponent,
+    UniversityListComponent,
+    UniversityDetailComponent,
+    UniversityDeleteComponent,
   ],
   imports: [
     BrowserModule,

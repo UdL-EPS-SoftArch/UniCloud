@@ -17,7 +17,7 @@ export class User extends Resource {
     Object.assign(this as any, values);
   }
 
-  getRoles(): string[] {
+  /*getRoles(): string[] {
     return this.authorities.map(a => a.authority.split('_')[1].toLowerCase());
-  }
+  }*/
 }
