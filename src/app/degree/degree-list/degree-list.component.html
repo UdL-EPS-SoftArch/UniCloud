@@ -1,1 +1,25 @@
-<p>degree-list works!</p>
+<app-degree-search (emitResults)="detail($event)"></app-degree-search>
+<div class="card mb-1" *ngFor="let degree of degrees">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Degree</h6>
+        <a class="card-text" [routerLink]="['/degrees', degree.id]">{{degree.name}}</a>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Faculty</h6>
+        <p class="card-text">{{degree.faculty}}</p>
+      </div>
+      <!--
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">University</h6>
+        <a class="card-text" [routerLink]=['/universities', university.id]>{{degree.university}}</a>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalDegrees"
+                (pageChange)="changePage()"></ngb-pagination>
