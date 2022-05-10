@@ -1,21 +1,20 @@
-<app-degree-search (emitResults)="detail($event)"></app-degree-search>
+<!--<app-degree-search [pageSize] = "pageSize" (emitResults)="modifyList($event)"></app-degree-search>-->
 <div class="card mb-1" *ngFor="let degree of degrees">
-  <div class="card-block row m-1 col-12">
+  <div class="card-block row">
     <div class="card-body row align-items-center">
-      <div class="col-6 mt-1">
+      <div class="col">
         <h6 class="card-subtitle text-muted">Degree</h6>
-        <a class="card-text" [routerLink]="['/degrees', degree.id]">{{degree.name}}</a>
+        <a class="card-text" [routerLink]="['/degrees',degree.id]">{{degree.name}}</a>
       </div>
-      <div class="col-6 mt-1">
+      <div class="col">
         <h6 class="card-subtitle text-muted">Faculty</h6>
         <p class="card-text">{{degree.faculty}}</p>
       </div>
-      <!--
-      <div class="col-6 mt-1">
+      <div class="col">
         <h6 class="card-subtitle text-muted">University</h6>
-        <a class="card-text" [routerLink]=['/universities', university.id]>{{degree.university}}</a>
+        <p class="card-text">{{degree.faculty}}</p>
+        <!--<a class="card-text" [routerLink]="['../universities', degree.university.id]">{{degree.name}}</a>-->
       </div>
-      -->
     </div>
   </div>
 </div>

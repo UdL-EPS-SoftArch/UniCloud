@@ -2,15 +2,14 @@ import {Router} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Degree } from '../degree';
 import { DegreeService } from '../degree.service';
-import {PagedResourceCollection} from "@lagoshny/ngx-hateoas-client";
-
-
+import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 @Component({
   selector: 'app-degree-list',
   templateUrl: './degree-list.component.html',
   styleUrls: ['./degree-list.component.css']
 })
 export class DegreeListComponent implements OnInit {
+  public degreesPagedResource: PagedResourceCollection<Degree>;
   public degrees: Degree[] = [];
   public pageSize = 5;
   public page = 1;
@@ -23,18 +22,22 @@ export class DegreeListComponent implements OnInit {
   ngOnInit(): void {
     this.degreeService.getPage({ pageParams : { size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe(
       (page: PagedResourceCollection<Degree>) => {
+        this.degreesPagedResource = page;
         this.degrees = page.resources;
         this.totalDegrees = page.totalElements;
       });
   }
 
   changePage(): void {
-    this.degreeService.getPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe(
-      (page: PagedResourceCollection<Degree>) => this.degrees = page.resources);
+    this.degreesPagedResource.customPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe
+    ((page: PagedResourceCollection<Degree>) => this.degrees = page.resources);
   }
 
-  detail(degree: Degree): void {
-    this.router.navigate(['degrees', degree.id]);
+
+  modifyList(degreePagedResource: PagedResourceCollection<Degree>): void{
+    this.degreesPagedResource = degreePagedResource;
+    this.degrees = this.degreesPagedResource.resources;
+    this.totalDegrees = this.degreesPagedResource.totalElements;
   }
 
 }
