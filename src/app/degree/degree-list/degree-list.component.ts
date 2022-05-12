@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Degree } from '../degree';
 import { DegreeService } from '../degree.service';
 import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
+import {University} from '../../university/university';
 @Component({
   selector: 'app-degree-list',
   templateUrl: './degree-list.component.html',
@@ -25,6 +26,11 @@ export class DegreeListComponent implements OnInit {
         this.degreesPagedResource = page;
         this.degrees = page.resources;
         this.totalDegrees = page.totalElements;
+        this.degrees.map(degree => {
+          degree.getRelation('university').subscribe((university: University) => {
+            degree.university = university;
+          });
+        });
       });
   }
 

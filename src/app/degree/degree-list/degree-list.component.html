@@ -12,8 +12,7 @@
       </div>
       <div class="col">
         <h6 class="card-subtitle text-muted">University</h6>
-        <p class="card-text">{{degree.faculty}}</p>
-        <!--<a class="card-text" [routerLink]="['../universities', degree.university.id]">{{degree.name}}</a>-->
+        <a class="card-text" [routerLink]="['../universities', degree.university.getSelfLinkHref().split('/')[4]]">{{degree.university.name}}</a>
       </div>
     </div>
   </div>
