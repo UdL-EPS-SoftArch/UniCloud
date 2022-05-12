@@ -31,6 +31,7 @@ import { UniversityListComponent } from './university/university-list/university
 import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
 import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
+import { ResourceDeleteComponent } from './resource/resource-delete/resource-delete.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {ResourceDetailComponent} from './resource/resource-detail/resource-detai
     UniversityDetailComponent,
     UniversityDeleteComponent,
     ResourceDetailComponent,
+    ResourceDeleteComponent,
   ],
   imports: [
     BrowserModule,
