@@ -30,6 +30,7 @@ import { UniversitySearchComponent } from './university/university-search/univer
 import { UniversityListComponent } from './university/university-list/university-list.component';
 import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
 import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
+import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {UniversityDeleteComponent} from './university/university-delete/universi
     UniversityListComponent,
     UniversityDetailComponent,
     UniversityDeleteComponent,
+    ResourceDetailComponent,
   ],
   imports: [
     BrowserModule,
