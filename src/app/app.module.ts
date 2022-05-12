@@ -24,6 +24,12 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import { ResourceCreateComponent } from './resource/resource-create/resource-create.component';
+import { UniversityEditComponent } from './university/university-edit/university-edit.component';
+import { UniversityCreateComponent } from './university/university-create/university-create.component';
+import { UniversitySearchComponent } from './university/university-search/university-search.component';
+import { UniversityListComponent } from './university/university-list/university-list.component';
+import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
+import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,13 @@ import { ResourceCreateComponent } from './resource/resource-create/resource-cre
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    ResourceCreateComponent
+    ResourceCreateComponent,
+    UniversityEditComponent,
+    UniversityCreateComponent,
+    UniversitySearchComponent,
+    UniversityListComponent,
+    UniversityDetailComponent,
+    UniversityDeleteComponent,
   ],
   imports: [
     BrowserModule,
