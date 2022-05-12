@@ -13,6 +13,7 @@ import { UniversityDetailComponent} from './university/university-detail/univers
 import { UniversityEditComponent} from './university/university-edit/university-edit.component';
 import { UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 import {UniversityCreateComponent} from './university/university-create/university-create.component';
+import {ResourceCreateComponent} from "./resource/resource-create/resource-create.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInGuard]},
   { path: 'universities', component: UniversityListComponent},
+  { path: 'resources/create', component: ResourceCreateComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
