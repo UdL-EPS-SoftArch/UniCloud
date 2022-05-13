@@ -14,9 +14,9 @@ export class SubjectService extends HateoasResourceOperation<Subject>{
   }
 
   public findByName(query: string): Observable<ResourceCollection<Subject>>{
-    return this.searchCollection('findByName', {params: {text: query}});
+    return this.searchCollection('findByName', {params: {name: query}});
   }
   public findByCourse(query: number): Observable<ResourceCollection<Subject>>{
-    return this.searchCollection('findByCourse', {params: {number: query}});
+    return this.searchCollection('findByCourse', {params: {course: query}});
   }
 }
