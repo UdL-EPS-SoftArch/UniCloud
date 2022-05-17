@@ -14,7 +14,9 @@ Given('I log in as {string} with password {string}', (username, password) => {
   cy.get('#username').type(username).blur();
   cy.get('#password').type(password).blur();
   cy.get('button').contains('Submit').click();
-  cy.wait(4000);
+  cy.get('#currentUser')
+    .invoke('text')
+    .should('contains', username);
 });
 
 Given('I click the {string} menu', (option) => {
