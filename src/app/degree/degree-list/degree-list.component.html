@@ -4,7 +4,7 @@
     <div class="card-body row align-items-center">
       <div class="col">
         <h6 class="card-subtitle text-muted">Degree</h6>
-        <a class="card-text" [routerLink]="['/degrees',degree.id]">{{degree.name}}</a>
+        <a class="card-text" [routerLink]="['/degrees', degree.getSelfLinkHref().split('/')[4]]">{{degree.name}}</a>
       </div>
       <div class="col">
         <h6 class="card-subtitle text-muted">Faculty</h6>
@@ -12,7 +12,7 @@
       </div>
       <div class="col">
         <h6 class="card-subtitle text-muted">University</h6>
-        <a class="card-text" [routerLink]="['../universities', degree.university.getSelfLinkHref().split('/')[4]]">{{degree.university.name}}</a>
+        <a class="card-text" [routerLink]="['../universities', degree.university.id]">{{degree.university.name}}</a>
       </div>
     </div>
   </div>
