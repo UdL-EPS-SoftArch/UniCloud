@@ -34,6 +34,7 @@ import {ResourceDetailComponent} from './resource/resource-detail/resource-detai
 import { ResourceDeleteComponent } from './resource/resource-delete/resource-delete.component';
 import { ResourceListComponent } from './resource/resource-list/resource-list.component';
 import { ResourceSearchComponent } from './resource/resource-search/resource-search.component';
+import { ResourceEditComponent } from './resource/resource-edit/resource-edit.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ResourceSearchComponent } from './resource/resource-search/resource-sea
     ResourceDeleteComponent,
     ResourceListComponent,
     ResourceSearchComponent,
+    ResourceEditComponent,
   ],
   imports: [
     BrowserModule,

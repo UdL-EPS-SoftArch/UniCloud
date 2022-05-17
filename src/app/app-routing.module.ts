@@ -17,6 +17,7 @@ import {ResourceCreateComponent} from './resource/resource-create/resource-creat
 import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
 import {ResourceDeleteComponent} from './resource/resource-delete/resource-delete.component';
 import {ResourceListComponent} from './resource/resource-list/resource-list.component';
+import {ResourceEditComponent} from './resource/resource-edit/resource-edit.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'resources/create', component: ResourceCreateComponent, canActivate: [LoggedInGuard]},
   { path: 'resources/:id', component: ResourceDetailComponent },
   { path: 'resources/:id/delete', component: ResourceDeleteComponent },
+  { path: 'resources/:id/edit', component: ResourceEditComponent, canActivate: [LoggedInGuard]},
   { path: 'resources', component: ResourceListComponent },
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
