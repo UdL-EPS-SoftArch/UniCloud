@@ -13,6 +13,7 @@ import { UniversityDetailComponent} from './university/university-detail/univers
 import { UniversityEditComponent} from './university/university-edit/university-edit.component';
 import { UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 import {UniversityCreateComponent} from './university/university-create/university-create.component';
+import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -20,10 +21,10 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities/create', component: UniversityCreateComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/create', component: UniversityCreateComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities/:id', component: UniversityDetailComponent},
-  { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities', component: UniversityListComponent},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
