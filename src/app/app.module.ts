@@ -33,6 +33,7 @@ import {UniversityDeleteComponent} from './university/university-delete/universi
 import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
 import { ResourceDeleteComponent } from './resource/resource-delete/resource-delete.component';
 import { ResourceListComponent } from './resource/resource-list/resource-list.component';
+import { ResourceSearchComponent } from './resource/resource-search/resource-search.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ResourceListComponent } from './resource/resource-list/resource-list.co
     ResourceDetailComponent,
     ResourceDeleteComponent,
     ResourceListComponent,
+    ResourceSearchComponent,
   ],
   imports: [
     BrowserModule,
