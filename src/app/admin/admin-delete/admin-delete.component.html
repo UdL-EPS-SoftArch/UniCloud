@@ -4,10 +4,10 @@
   </div>
   <div class="panel-body">
     <div class="text-center">
-      <button id="deleteBttn" type="button" (click)="delete()"
+      <button id="deleteBtn" type="button" (click)="delete()"
               class="btn btn-outline-danger m-1">Delete</button>
-      <button id="listBttn" type="button" [routerLink]="['/admin', admin.id]"
-              class="btn-outline-primary m-1">Cancel</button>
+      <button id="listBtn" type="button" [routerLink]="['admin', admin.id]"
+              class="btn btn-outline-primary m-1">Cancel</button>
     </div>
   </div>
 </div>

@@ -5,6 +5,7 @@ import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {RouterModule} from '@angular/router';
 import {AboutComponent} from './about/about.component';
 import {NotFoundComponent} from './error-handler/error-alert/not-found.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
@@ -25,9 +26,8 @@ import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
 import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
-import { AdminCreateComponent } from './admin/admin-create/admin-create.component';
+import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
-import { AdminFormComponent } from './admin/admin-list/admin-form.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { AdminSearchComponent } from './admin/admin-search/admin-search.component';
 
@@ -46,9 +46,8 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
     UserSearchComponent,
     AdminDeleteComponent,
     AdminDetailComponent,
-    AdminCreateComponent,
+    AdminRegisterComponent,
     AdminEditComponent,
-    AdminFormComponent,
     AdminListComponent,
     AdminSearchComponent,
   ],
@@ -65,6 +64,7 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
     ErrorHandlerModule,
     NgbModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
