@@ -8,7 +8,7 @@ Feature: Create University
     And I log in as "admin" with password "password"
     And I click on nav item "Universities"
     And I click on dropdown item "List Universities"
-    And I click on the "Create University" button
+    And I click the "Create University" button
     And I fill the form with
       | FIELD    | VALUE         |
       | name     | ExampleName   |
@@ -30,7 +30,7 @@ Feature: Create University
     And I log in as "admin" with password "password"
     And I click on nav item "Universities"
     And I click on dropdown item "List Universities"
-    And I click on the "Create University" button
+    And I click the "Create University" button
     And I fill the form with
       | FIELD    | VALUE         |
       | name     | ExampleName   |
