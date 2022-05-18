@@ -2,7 +2,7 @@ import { HateoasResource, Resource } from '@lagoshny/ngx-hateoas-client';
 
 @HateoasResource('resources')
 export class UniResource extends Resource {
-  id: bigint;
+  id: string;
   name: string;
   description: string;
   file: string;

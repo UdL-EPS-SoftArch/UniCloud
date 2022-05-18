@@ -29,4 +29,8 @@ export class ResourceEditComponent implements OnInit {
       });
   }
 
+  getCurrentResourceId(): string {
+    return this.resource.id;
+  }
+
 }
