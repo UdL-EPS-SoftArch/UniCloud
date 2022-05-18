@@ -23,12 +23,20 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { UniversityEditComponent } from './university/university-edit/university-edit.component';
+import { UniversityCreateComponent } from './university/university-create/university-create.component';
+import { UniversitySearchComponent } from './university/university-search/university-search.component';
+import { UniversityListComponent } from './university/university-list/university-list.component';
+import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
+import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 import { SubjectCreateComponent } from './subject/subject-create/subject-create.component';
 import { SubjectDeleteComponent } from './subject/subject-delete/subject-delete.component';
 import { SubjectDetailComponent } from './subject/subject-detail/subject-detail.component';
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
 import { SubjectSearchComponent } from './subject/subject-search/subject-search.component';
+import { LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
+import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
 
 @NgModule({
   declarations: [
@@ -42,6 +50,12 @@ import { SubjectSearchComponent } from './subject/subject-search/subject-search.
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    UniversityEditComponent,
+    UniversityCreateComponent,
+    UniversitySearchComponent,
+    UniversityListComponent,
+    UniversityDetailComponent,
+    UniversityDeleteComponent,
     SubjectCreateComponent,
     SubjectDeleteComponent,
     SubjectDetailComponent,
@@ -66,7 +80,7 @@ import { SubjectSearchComponent } from './subject/subject-search/subject-search.
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    AuthenticationBasicService, LoggedInGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, LoggedInStudentGuard, LoggedInAdminGuard, UserService
   ],
   bootstrap: [AppComponent]
 })
