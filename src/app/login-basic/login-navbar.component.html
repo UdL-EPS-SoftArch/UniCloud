@@ -1,11 +1,16 @@
-<li class="nav-item" *ngIf="isLoggedIn()" id="currentUser">
-  <a class="nav-link" [routerLink]="['/users', getCurrentUser().id]">
+<li class="nav-item" *ngIf="isLoggedIn()"></li>
+  <a class="nav-link" href="#" (click)="logout($event)">
+    <span class="fas fa-sign-out-alt"></span> Logout</a>
+</li>
+
+<li class="nav-item" *ngIf="isLoggedIn()" id="currentAdmin">
+  <a class="nav-link" *ngIf="isRole('admin')" [routerLink]="['/admin', getCurrentUser().id]">
     <span class="fas fa-user-circle"></span> {{getCurrentUser().id}}</a>
 </li>
 
-<li class="nav-item" *ngIf="isLoggedIn()">
-  <a class="nav-link" href="#" (click)="logout($event)">
-    <span class="fas fa-sign-out-alt"></span> Logout</a>
+<li class="nav-item" *ngIf="isLoggedIn()" id="currentStudent">
+  <a class="nav-link" *ngIf="isRole('student')" [routerLink]="['/student', getCurrentUser().id]">
+    <span class="fas fa-user-circle"></span> {{getCurrentUser().id}}</a>
 </li>
 
 <li class="nav-item" *ngIf="!isLoggedIn()">
