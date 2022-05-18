@@ -87,6 +87,7 @@ Feature: Create University
 
   Scenario: Edit university not authenticated
     Given I'm in the homepage
+    And I'm not logged in
     And I click on nav item "Universities"
     And I click on dropdown item "List Universities"
     When I click on card-text item "Universitat de Lleida"

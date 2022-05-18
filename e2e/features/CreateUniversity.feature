@@ -1,7 +1,7 @@
 Feature: Create University
   In order to use the app
-  As a Admin
-  I want to create universities to see
+  As a User
+  I want to create universities
 
   Scenario: Create new valid University as Admin
     Given I'm in the homepage
@@ -21,6 +21,12 @@ Feature: Create University
   Scenario: Create a new University as Student
     Given I'm in the homepage
     And I log in as "student" with password "password"
+    And I click on nav item "Universities"
+    And I click on dropdown item "List Universities"
+    Then The button "Create University" does not exists
+
+  Scenario: Create a new University not authenticated
+    Given I'm in the homepage
     And I click on nav item "Universities"
     And I click on dropdown item "List Universities"
     Then The button "Create University" does not exists

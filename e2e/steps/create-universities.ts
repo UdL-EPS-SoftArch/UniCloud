@@ -1,5 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
-import { DataTable } from '@cucumber/cucumber';
+import {Given, Then} from 'cypress-cucumber-preprocessor/steps';
 
 
 Given('I click on nav item {string}', (value) => {
