@@ -24,7 +24,7 @@
 
     <!-- Button -->
     <div class="form-group fa-pull-right">
-      <button id="userDetail" type="button" [routerLink]="['/degree/'+ degree.getSelfLinkHref().split('/')[4]]"
+      <button id="userDetail" type="button" (click)="onCancel()"
               class="btn btn-outline-primary">Back</button>
       <button id="submit" type="submit" [disabled]="!form.form.valid"
               class="btn btn-success ms-3">Submit</button>
