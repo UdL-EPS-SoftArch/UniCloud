@@ -22,6 +22,16 @@ export class ResourceEditComponent implements OnInit {
       (resource: UniResource) => this.resource = resource );
   }
 
+  addDataFile(event): void {
+    const fileList: FileList = event.target.files;
+    const FileToUpload: File = fileList[0];
+    const reader = new FileReader();
+    reader.readAsText(FileToUpload);
+    reader.onloadend = (e) => {
+      this.resource.file = reader.result;
+    };
+  }
+
   onSubmit(): void {
     this.resourceService.patchResource(this.resource).subscribe(
       (patchedResource: UniResource) => {
