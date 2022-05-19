@@ -15,7 +15,12 @@
     </div>
 
     <!-- File input -->
-
+    <div class="form-group">
+      <label class="control-label" for="inputFile">Resource file</label>
+      <div class="col-md-9">
+        <input type="file" id="inputFile" autofocus="" (change)="addDataFile($event)" #file/>
+      </div>
+    </div>
 
     <!-- Resource type input -->
 

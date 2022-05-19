@@ -5,7 +5,7 @@ export class UniResource extends Resource {
   id: string;
   name: string;
   description: string;
-  file: string;
+  file: string | ArrayBuffer;
   resourceType: ResourceType;
   // owner: Student;
   // subjects: Subject[] = []

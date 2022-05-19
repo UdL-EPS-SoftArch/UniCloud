@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UniResource } from '../uni-resource';
 import { Router } from '@angular/router';
-import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { Location } from '@angular/common';
 import {UniResourceService} from '../uni-resource.service';
 
@@ -20,6 +19,16 @@ export class ResourceCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.resource = new UniResource();
+  }
+
+  addDataFile(event): void {
+    const fileList: FileList = event.target.files;
+    const FileToUpload: File = fileList[0];
+    const reader = new FileReader();
+    reader.readAsText(FileToUpload);
+    reader.onloadend = (e) => {
+      this.resource.file = reader.result;
+    };
   }
 
   onSubmit(): void {
