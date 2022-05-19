@@ -26,6 +26,18 @@ import {UserService} from './user/user.service';
 import { RatingCreateComponent } from './rating/rating-create/rating-create.component';
 import { RatingDeleteComponent } from './rating/rating-delete/rating-delete.component';
 import { RatingModifyComponent } from './rating/rating-modify/rating-modify.component';
+import { ResourceCreateComponent } from './resource/resource-create/resource-create.component';
+import { UniversityEditComponent } from './university/university-edit/university-edit.component';
+import { UniversityCreateComponent } from './university/university-create/university-create.component';
+import { UniversitySearchComponent } from './university/university-search/university-search.component';
+import { UniversityListComponent } from './university/university-list/university-list.component';
+import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
+import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
+import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
+import { ResourceDeleteComponent } from './resource/resource-delete/resource-delete.component';
+import { ResourceListComponent } from './resource/resource-list/resource-list.component';
+import { ResourceSearchComponent } from './resource/resource-search/resource-search.component';
+import { ResourceEditComponent } from './resource/resource-edit/resource-edit.component';
 
 @NgModule({
   declarations: [
