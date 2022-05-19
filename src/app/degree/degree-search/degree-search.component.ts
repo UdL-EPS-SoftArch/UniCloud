@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './degree-search.component.html',
   styleUrls: ['./degree-search.component.css']
 })
-export class DegreeSearchComponent implements OnInit {
+export class DegreeSearchComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
