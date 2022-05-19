@@ -4,6 +4,9 @@ import {Rating} from '../rating';
 import {Router} from '@angular/router';
 import {RatingService} from '../rating.service';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
+import {UniResourceService} from '../../resource/uni-resource.service';
+import {UniResource} from '../../resource/uni-resource';
+import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 
 
 
@@ -15,14 +18,21 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
 export class RatingCreateComponent implements OnInit{
 
   public rating: Rating;
-
+  public resources: UniResource[] = [];
+  public selectedResource: UniResource;
   constructor(private router: Router,
               private location: Location,
               private ratingService: RatingService,
+              private resourceService: UniResourceService,
               private authenticationBasicService: AuthenticationBasicService) {}
 
   ngOnInit(): void{
     this.rating = new Rating();
+    this.resourceService.getPage({pageParams: {size: 5 }, sort: {name: 'ASC'}}).subscribe(
+      (page: PagedResourceCollection<UniResource>) => {
+        this.resources = page.resources;
+        console.log(this.resources);
+      });
   }
 
    onSubmit(): void {

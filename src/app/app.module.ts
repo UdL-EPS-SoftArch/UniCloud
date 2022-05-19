@@ -38,6 +38,7 @@ import { ResourceDeleteComponent } from './resource/resource-delete/resource-del
 import { ResourceListComponent } from './resource/resource-list/resource-list.component';
 import { ResourceSearchComponent } from './resource/resource-search/resource-search.component';
 import { ResourceEditComponent } from './resource/resource-edit/resource-edit.component';
+import {RatingDetailComponent} from './rating/rating-detail/rating-detail.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,20 @@ import { ResourceEditComponent } from './resource/resource-edit/resource-edit.co
     UserRegisterComponent,
     UserEditComponent,
     UserDeleteComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    ResourceCreateComponent,
+    UniversityEditComponent,
+    UniversityCreateComponent,
+    UniversityListComponent,
+    UniversitySearchComponent,
+    UniversityDetailComponent,
+    UniversityDeleteComponent,
+    ResourceDetailComponent,
+    ResourceDeleteComponent,
+    ResourceEditComponent,
+    ResourceListComponent,
+    ResourceSearchComponent,
+    RatingDetailComponent
   ],
   imports: [
     BrowserModule,
