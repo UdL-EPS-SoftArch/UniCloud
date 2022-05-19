@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {DegreeService} from '../degree.service';
 import {Degree} from '../degree';
 import { Location } from '@angular/common';
-import {University} from "../../university/university";
+import {University} from '../../university/university';
 
 @Component({
   selector: 'app-degree-edit',
