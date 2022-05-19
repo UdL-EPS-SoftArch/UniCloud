@@ -1,0 +1,33 @@
+<app-university-search [pageSize] = "pageSize" (emitResults)="modifyList($event)"></app-university-search>
+<div class="card mb-1" *ngFor="let university of universities">
+  <div class="card-block row">
+    <div class="card-body row align-items-center">
+      <div class="col">
+        <h6 class="card-subtitle text-muted">University</h6>
+        <a class="card-text" [routerLink]="['/universities', university.id]">{{university.name}}</a>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Acronym</h6>
+        <p class="card-text">{{university.acronym}}</p>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Country</h6>
+        <p class="card-text">{{university.country}}</p>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">City</h6>
+        <p class="card-text">{{university.city}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-footer text-right" *ngIf="isRole('admin')" >
+  <button id="createBtn" type="button" [routerLink]="['create']"
+          class="btn m-1 btn-outline-primary">Create University
+  </button>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalUniversities"
+                (pageChange)="changePage()"></ngb-pagination>
+
