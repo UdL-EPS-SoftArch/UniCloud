@@ -35,6 +35,8 @@ import { ResourceDeleteComponent } from './resource/resource-delete/resource-del
 import { ResourceListComponent } from './resource/resource-list/resource-list.component';
 import { ResourceSearchComponent } from './resource/resource-search/resource-search.component';
 import { ResourceEditComponent } from './resource/resource-edit/resource-edit.component';
+import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
+import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
 
 @NgModule({
   declarations: [
@@ -48,13 +50,13 @@ import { ResourceEditComponent } from './resource/resource-edit/resource-edit.co
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    ResourceCreateComponent,
     UniversityEditComponent,
     UniversityCreateComponent,
     UniversitySearchComponent,
     UniversityListComponent,
     UniversityDetailComponent,
     UniversityDeleteComponent,
+    ResourceCreateComponent,
     ResourceDetailComponent,
     ResourceDeleteComponent,
     ResourceListComponent,

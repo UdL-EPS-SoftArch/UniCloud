@@ -18,6 +18,7 @@ import {ResourceDetailComponent} from './resource/resource-detail/resource-detai
 import {ResourceDeleteComponent} from './resource/resource-delete/resource-delete.component';
 import {ResourceListComponent} from './resource/resource-list/resource-list.component';
 import {ResourceEditComponent} from './resource/resource-edit/resource-edit.component';
+import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -25,10 +26,10 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities/create', component: UniversityCreateComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/create', component: UniversityCreateComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities/:id', component: UniversityDetailComponent},
-  { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities', component: UniversityListComponent},
   { path: 'resources/create', component: ResourceCreateComponent, canActivate: [LoggedInGuard]},
   { path: 'resources/:id', component: ResourceDetailComponent },

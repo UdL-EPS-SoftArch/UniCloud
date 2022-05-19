@@ -28,8 +28,7 @@ export class UniversityDeleteComponent implements OnInit {
   delete(): void {
     this.universityService.deleteResource(this.university).subscribe(
       () => {
-        this.authenticationService.logout();
-        this.router.navigate(['']);
+        this.router.navigate(['universities']);
       });
   }
 
