@@ -13,7 +13,7 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
 export class SubjectListComponent implements OnInit {
   public subjectsPagedResource: PagedResourceCollection<Subject>;
   public subjects: Subject[] = [];
-  public pageSize = 2;
+  public pageSize = 5;
   public page = 1;
   public totalSubjects = 0;
 
