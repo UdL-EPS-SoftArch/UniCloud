@@ -23,6 +23,12 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { DegreeCreateComponent } from './degree/degree-create/degree-create.component';
+import { DegreeDetailComponent } from './degree/degree-detail/degree-detail.component';
+import { DegreeEditComponent } from './degree/degree-edit/degree-edit.component';
+import { DegreeListComponent } from './degree/degree-list/degree-list.component';
+import { DegreeDeleteComponent } from './degree/degree-delete/degree-delete.component';
+import { DegreeSearchComponent } from './degree/degree-search/degree-search.component';
 import { UniversityEditComponent } from './university/university-edit/university-edit.component';
 import { UniversityCreateComponent } from './university/university-create/university-create.component';
 import { UniversitySearchComponent } from './university/university-search/university-search.component';
@@ -44,6 +50,12 @@ import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    DegreeCreateComponent,
+    DegreeDetailComponent,
+    DegreeEditComponent,
+    DegreeListComponent,
+    DegreeDeleteComponent,
+    DegreeSearchComponent,
     UniversityEditComponent,
     UniversityCreateComponent,
     UniversitySearchComponent,
