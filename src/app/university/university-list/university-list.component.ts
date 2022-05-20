@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { University } from '../university';
 import { UniversityService } from '../university.service';
-import {PagedResourceCollection, ResourceCollection} from '@lagoshny/ngx-hateoas-client';
+import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 @Component({
   selector: 'app-university-list',
@@ -12,7 +12,7 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
 export class UniversityListComponent implements OnInit {
   public universitiesPagedResource: PagedResourceCollection<University>;
   public universities: University[] = [];
-  public pageSize = 2;
+  public pageSize = 4;
   public page = 1;
   public totalUniversities = 0;
 
@@ -29,22 +29,12 @@ export class UniversityListComponent implements OnInit {
         this.universities = page.resources;
         this.totalUniversities = page.totalElements;
       });
-
-    /*this.universityService.getCollection({ sort: { name: 'ASC'} }).subscribe(
-      (universities: ResourceCollection<University>) => {
-        this.universities = universities.resources;
-        this.totalUniversities = this.universities.length;
-        this.totalUniversities = universities.totalElements;
-      });*/
   }
 
   changePage(): void{
     this.universitiesPagedResource.customPage({pageParams: {page: this.page - 1, size: this.pageSize },  sort: {name: 'ASC'}}).subscribe
     ((page: PagedResourceCollection<University>) =>
-    { // this.universitiesPagedResource = page;
-      this.universities = page.resources; });
-    /*this.universityService.getPage( {pageParams: {page: this.page - 1, size: this.pageSize}, sort: {name: 'ASC'} }).subscribe(
-      (page: PagedResourceCollection<University>) => this.universities = page.resources);*/
+    { this.universities = page.resources; });
   }
 
   modifyList(universityPagedResource: PagedResourceCollection<University>): void{
