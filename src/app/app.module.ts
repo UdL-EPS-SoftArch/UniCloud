@@ -5,6 +5,7 @@ import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {RouterModule} from '@angular/router';
 import {AboutComponent} from './about/about.component';
 import {NotFoundComponent} from './error-handler/error-alert/not-found.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
@@ -37,6 +38,13 @@ import { ResourceSearchComponent } from './resource/resource-search/resource-sea
 import { ResourceEditComponent } from './resource/resource-edit/resource-edit.component';
 import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
+import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
+import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
+import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
+import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
+import { AdminListComponent } from './admin/admin-list/admin-list.component';
+import { AdminSearchComponent } from './admin/admin-search/admin-search.component';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +64,13 @@ import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
     UniversityListComponent,
     UniversityDetailComponent,
     UniversityDeleteComponent,
+    UserSearchComponent,
+    AdminDeleteComponent,
+    AdminDetailComponent,
+    AdminRegisterComponent,
+    AdminEditComponent,
+    AdminListComponent,
+    AdminSearchComponent,
     ResourceCreateComponent,
     ResourceDetailComponent,
     ResourceDeleteComponent,
@@ -76,11 +91,12 @@ import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
     ErrorHandlerModule,
     NgbModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    AuthenticationBasicService, LoggedInGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, LoggedInAdminGuard, LoggedInStudentGuard, UserService
   ],
   bootstrap: [AppComponent]
 })
