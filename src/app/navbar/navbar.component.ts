@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     return this.authenticationService.isLoggedIn();
   }
 
-  isRole(role: string): boolean {
-    return this.authenticationService.isRole(role);
+  isAdmin(): boolean {
+    return this.authenticationService.getCurrentUser().getRoles().includes('admin');
   }
 }
