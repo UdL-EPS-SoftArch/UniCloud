@@ -33,6 +33,8 @@ import { UniversitySearchComponent } from './university/university-search/univer
 import { UniversityListComponent } from './university/university-list/university-list.component';
 import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
 import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
+import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
+import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
 import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
 import { ResourceDeleteComponent } from './resource/resource-delete/resource-delete.component';
 import { ResourceListComponent } from './resource/resource-list/resource-list.component';
@@ -86,7 +88,7 @@ import {RatingDetailComponent} from './rating/rating-detail/rating-detail.compon
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    AuthenticationBasicService, LoggedInGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, LoggedInAdminGuard, LoggedInStudentGuard, UserService
   ],
   bootstrap: [AppComponent]
 })

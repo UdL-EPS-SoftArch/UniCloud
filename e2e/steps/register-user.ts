@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps';
 import { DataTable } from '@cucumber/cucumber';
 
 Given('I\'m in the homepage', () => {
@@ -14,6 +14,9 @@ Given('I log in as {string} with password {string}', (username, password) => {
   cy.get('#username').type(username).blur();
   cy.get('#password').type(password).blur();
   cy.get('button').contains('Submit').click();
+  cy.get('#currentUser')
+    .invoke('text')
+    .should('contains', username);
 });
 
 Given('I click the {string} menu', (option) => {
@@ -28,6 +31,10 @@ When('I fill the form with', (table: DataTable) => {
 When('I click the {string} button', (label) => {
     cy.get('button').contains(label).click();
   });
+
+When('I click on the {string} link', (label) => {
+  cy.get('a').contains(label).click();
+});
 
 Then('I\'m logged in as user {string}', (username) => {
   cy.get('#currentUser')
