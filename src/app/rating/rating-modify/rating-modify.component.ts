@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { RatingService } from '../rating.service';
 import { Rating } from '../rating';
+
 
 @Component({
   selector: 'app-rating-modify',
@@ -15,8 +15,7 @@ export class RatingModifyComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private ratingService: RatingService,
-              private authenticationService: AuthenticationBasicService) {
+              private ratingService: RatingService) {
   }
 
   ngOnInit(): void {
@@ -26,10 +25,13 @@ export class RatingModifyComponent implements OnInit {
   }
 
   onSubmit(): void {
-
+    this.ratingService.patchResource(this.rating).subscribe(
+      (patchedRating: Rating) => {
+        this.router.navigate(['ratings', patchedRating.id]);
+      });
   }
 
-  getCurrentUserName(): string {
-    return this.authenticationService.getCurrentUser().id;
+  getCurrentRatingId(): string {
+    return this.rating.id;
   }
 }

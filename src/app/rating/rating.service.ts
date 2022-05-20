@@ -10,7 +10,7 @@ export class RatingService extends HateoasResourceOperation<Rating> {
     super(Rating);
   }
 
-  public findByRatingGreaterThan(query: string): Observable<ResourceCollection<Rating>> {
-    return;
+  public findByRatingGreaterThan(query: number): Observable<ResourceCollection<Rating>> {
+    return this.searchCollection('findByRatingGreaterThan', { params: { rating: query }});
   }
 }
