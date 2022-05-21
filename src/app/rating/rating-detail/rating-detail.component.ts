@@ -18,11 +18,10 @@ export class RatingDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const id = this.route.snapshot.paramMap.get('id');
-    // this.ratingService..subscribe(
-      // rating => {
-        // this.rating = rating;
-      // });
+    const id = this.route.snapshot.paramMap.get('id');
+    this.ratingService.getResource(id).subscribe(
+       rating => {this.rating = rating;
+      });
     return;
   }
   isRole(role: string): boolean {
