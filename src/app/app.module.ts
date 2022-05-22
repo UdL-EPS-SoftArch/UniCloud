@@ -26,6 +26,9 @@ import {UserService} from './user/user.service';
 import { RatingCreateComponent } from './rating/rating-create/rating-create.component';
 import { RatingDeleteComponent } from './rating/rating-delete/rating-delete.component';
 import { RatingModifyComponent } from './rating/rating-modify/rating-modify.component';
+import { RatingListComponent} from './rating/rating-list/rating-list.component';
+import { RatingSearchComponent } from './rating/rating-search/rating-search.component';
+import { RatingDetailComponent} from './rating/rating-detail/rating-detail.component';
 import { ResourceCreateComponent } from './resource/resource-create/resource-create.component';
 import { UniversityEditComponent } from './university/university-edit/university-edit.component';
 import { UniversityCreateComponent } from './university/university-create/university-create.component';
@@ -40,7 +43,6 @@ import { ResourceDeleteComponent } from './resource/resource-delete/resource-del
 import { ResourceListComponent } from './resource/resource-list/resource-list.component';
 import { ResourceSearchComponent } from './resource/resource-search/resource-search.component';
 import { ResourceEditComponent } from './resource/resource-edit/resource-edit.component';
-import {RatingDetailComponent} from './rating/rating-detail/rating-detail.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import {RatingDetailComponent} from './rating/rating-detail/rating-detail.compon
     RatingCreateComponent,
     RatingDeleteComponent,
     RatingModifyComponent,
+    RatingListComponent,
+    RatingSearchComponent,
     NotFoundComponent,
     UserListComponent,
     UserDetailComponent,

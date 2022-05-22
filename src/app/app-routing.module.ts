@@ -5,6 +5,8 @@ import { AboutComponent } from './about/about.component';
 import { RatingCreateComponent } from './rating/rating-create/rating-create.component';
 import { RatingDeleteComponent } from './rating/rating-delete/rating-delete.component';
 import { RatingModifyComponent } from './rating/rating-modify/rating-modify.component';
+import { RatingListComponent} from './rating/rating-list/rating-list.component';
+import { RatingDetailComponent} from './rating/rating-detail/rating-detail.component';
 import { NotFoundComponent } from './error-handler/error-alert/not-found.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UniversityListComponent} from './university/university-list/university-list.component';
@@ -41,9 +43,11 @@ const routes: Routes = [
   { path: 'resources/:id/edit', component: ResourceEditComponent, canActivate: [LoggedInGuard]},
   { path: 'resources', component: ResourceListComponent },
   { path: 'about', component: AboutComponent},
-  { path: 'rating/create', component: RatingCreateComponent},
-  { path: 'rating/delete', component: RatingDeleteComponent, canActivate: [LoggedInGuard]},
-  { path: 'rating/edit', component: RatingModifyComponent, canActivate: [LoggedInGuard]},
+  { path: 'ratings/create', component: RatingCreateComponent},
+  { path: 'ratings/:id/delete', component: RatingDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'ratings/:id/edit', component: RatingModifyComponent, canActivate: [LoggedInGuard]},
+  { path: 'ratings/:id', component: RatingDetailComponent},
+  { path: 'ratings', component: RatingListComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
 ];
