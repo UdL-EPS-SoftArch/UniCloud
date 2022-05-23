@@ -1,5 +1,5 @@
 import {Router} from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Degree } from '../degree';
 import { DegreeService } from '../degree.service';
 import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
@@ -15,23 +15,38 @@ export class DegreeListComponent implements OnInit {
   public pageSize = 5;
   public page = 1;
   public totalDegrees = 0;
-
+  @Input() public university: string;
   constructor(
     public router: Router,
     private degreeService: DegreeService) { }
 
   ngOnInit(): void {
-    this.degreeService.getPage({ pageParams : { size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe(
-      (page: PagedResourceCollection<Degree>) => {
-        this.degreesPagedResource = page;
-        this.degrees = page.resources;
-        this.totalDegrees = page.totalElements;
-        this.degrees.map(degree => {
-          degree.getRelation('university').subscribe((university: University) => {
-            degree.university = university;
+    console.log(this.university);
+    if (this.university == null) {
+      this.degreeService.getPage({pageParams: {size: this.pageSize}, sort: {degrees: 'ASC'}}).subscribe(
+        (page: PagedResourceCollection<Degree>) => {
+          this.degreesPagedResource = page;
+          this.degrees = page.resources;
+          this.totalDegrees = page.totalElements;
+          this.degrees.map(degree => {
+            degree.getRelation('university').subscribe((university: University) => {
+              degree.university = university;
+            });
           });
         });
-      });
+    }else {
+      this.degreeService.findByUniversity(this.university).subscribe(
+        (page: PagedResourceCollection<Degree>) => {
+          this.degreesPagedResource = page;
+          this.degrees = page.resources;
+          this.totalDegrees = page.totalElements;
+          this.degrees.map(degree => {
+            degree.getRelation('university').subscribe((university: University) => {
+              degree.university = university;
+            });
+          });
+        });
+    }
   }
 
   changePage(): void {

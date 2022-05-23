@@ -31,9 +31,8 @@ export class DegreeService extends HateoasResourceOperation<Degree> {
   public findByUniversityNameContaining(query: string): Observable<ResourceCollection<Degree>>{
     return this.searchCollection('findByUniversityNameContaining', { params: { text: query } });
   }
-  /*
-  public findByUniversity(query: university): Observable<ResourceCollection<Degree>>{
-    return this.searchCollection('findByUniversity', { params: { ??: query } } );
+  public findByUniversity(query: string): Observable<ResourceCollection<Degree>>{
+    return this.searchCollection('findByUniversity', { params: { university: 'universities/' + query } } );
   }
-  */
+
 }
