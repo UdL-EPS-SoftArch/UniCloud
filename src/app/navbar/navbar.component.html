@@ -19,6 +19,7 @@
         </div>
       </li>
       <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
+      <li class="nav-item" *ngIf="isAdmin()" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="playerDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Users</a>
         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
@@ -32,6 +33,14 @@
         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
              [routerLink]="['/universities']"><span class="fas fa-user-circle"></span> List Universities</a>
+        </div>
+      </li>
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link dropdown-toggle" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Subjects</a>
+        <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/subjects']"><span class="fas fa-user-circle"></span> List Subjects</a>
         </div>
       </li>
     </ul>
