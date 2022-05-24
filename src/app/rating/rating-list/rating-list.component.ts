@@ -6,8 +6,8 @@ import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 @Component({
   selector: 'app-rating-list',
-  templateUrl: './Rating-list.component.html',
-  styleUrls: ['./Rating-list.component.css']
+  templateUrl: './rating-list.component.html',
+  styleUrls: ['./rating-list.component.css']
 })
 export class RatingListComponent implements OnInit {
   public ratingsPagedResource: PagedResourceCollection<Rating>;
