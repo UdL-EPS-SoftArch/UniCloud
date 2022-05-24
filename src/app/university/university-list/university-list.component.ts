@@ -12,7 +12,7 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
 export class UniversityListComponent implements OnInit {
   public universitiesPagedResource: PagedResourceCollection<University>;
   public universities: University[] = [];
-  public pageSize = 4;
+  public pageSize = 5;
   public page = 1;
   public totalUniversities = 0;
 
