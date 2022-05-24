@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoggedInGuard } from './login-basic/loggedin.guard';
+import { LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './error-handler/error-alert/not-found.component';
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -13,12 +14,16 @@ import { UniversityDetailComponent} from './university/university-detail/univers
 import { UniversityEditComponent} from './university/university-edit/university-edit.component';
 import { UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 import {UniversityCreateComponent} from './university/university-create/university-create.component';
-import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import { DegreeListComponent} from './degree/degree-list/degree-list.component';
 import { DegreeDetailComponent} from './degree/degree-detail/degree-detail.component';
 import { DegreeCreateComponent} from './degree/degree-create/degree-create.component';
 import { DegreeEditComponent} from './degree/degree-edit/degree-edit.component';
 import { DegreeDeleteComponent} from './degree/degree-delete/degree-delete.component';
+import {SubjectCreateComponent} from './subject/subject-create/subject-create.component';
+import {SubjectListComponent} from './subject/subject-list/subject-list.component';
+import {SubjectDetailComponent} from './subject/subject-detail/subject-detail.component';
+import {SubjectEditComponent} from './subject/subject-edit/subject-edit.component';
+import {SubjectDeleteComponent} from './subject/subject-delete/subject-delete.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -39,6 +44,12 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
+
+  { path: 'subjects', component: SubjectListComponent},
+  { path: 'subjects/create', component: SubjectCreateComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'subjects/:id', component: SubjectDetailComponent},
+  { path: 'subjects/:id/edit', component: SubjectEditComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'subjects/:id/delete', component: SubjectDeleteComponent, canActivate: [LoggedInAdminGuard]},
 ];
 
 @NgModule({

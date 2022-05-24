@@ -13,8 +13,8 @@ export class LoggedInAdminGuard implements CanActivate {
   canActivate(): boolean {
     if (!this.authentication.isLoggedIn()) {
       this.errorMessageService.showErrorMessage('You should be logged in to perform this action');
-    }else if (!this.authentication.isRole('admin')){
-      this.errorMessageService.showErrorMessage('You do not have enough permissions to preform this action');
+    } else if (!this.authentication.isRole('admin')) {
+      this.errorMessageService.showErrorMessage('You do not have enough permissions to perform this action');
     }
     return this.authentication.isLoggedIn() && this.authentication.isRole('admin');
   }

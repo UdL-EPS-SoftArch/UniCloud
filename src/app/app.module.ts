@@ -36,7 +36,13 @@ import { UniversitySearchComponent } from './university/university-search/univer
 import { UniversityListComponent } from './university/university-list/university-list.component';
 import {UniversityDetailComponent} from './university/university-detail/university-detail.component';
 import {UniversityDeleteComponent} from './university/university-delete/university-delete.component';
-import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
+import { SubjectCreateComponent } from './subject/subject-create/subject-create.component';
+import { SubjectDeleteComponent } from './subject/subject-delete/subject-delete.component';
+import { SubjectDetailComponent } from './subject/subject-detail/subject-detail.component';
+import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
+import { SubjectListComponent } from './subject/subject-list/subject-list.component';
+import { SubjectSearchComponent } from './subject/subject-search/subject-search.component';
+import { LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
 import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
 import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
@@ -70,6 +76,12 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
     UniversityListComponent,
     UniversityDetailComponent,
     UniversityDeleteComponent,
+    SubjectCreateComponent,
+    SubjectDeleteComponent,
+    SubjectDetailComponent,
+    SubjectEditComponent,
+    SubjectListComponent,
+    SubjectSearchComponent,
     UserSearchComponent,
     AdminDeleteComponent,
     AdminDetailComponent,
@@ -96,7 +108,7 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    AuthenticationBasicService, LoggedInGuard, LoggedInAdminGuard, LoggedInStudentGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, LoggedInStudentGuard, LoggedInAdminGuard, UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,22 @@
+<div class="card mb-1" *ngFor="let subject of subjects">
+  <div class="card-block row">
+    <div class="card-body row align-items-center">
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Subject</h6>
+        <a class="card-text" [routerLink]="['subjects', subject.id]">{{subject.name}}</a>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Course</h6>
+        <p class="card-text">{{subject.course}}</p>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Optional</h6>
+        <p class="card-text">{{subject.optional}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalSubjects"
+                (pageChange)="changePage()"></ngb-pagination>
