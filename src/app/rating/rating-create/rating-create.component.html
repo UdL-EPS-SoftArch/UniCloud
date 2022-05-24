@@ -3,9 +3,9 @@
 <form id="user-form" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
 
-    <div class="form-group mb-3">
+    <div class="form-group mb-3" >
       <label class="control-label" for="comment">Comment*</label>
-      <input id="comment" name="comment" type="comment" class="form-control" required email>
+      <input id="comment" name="comment" type="text" class="form-control" required [(ngModel)]="rating.comment" #comment="ngModel">
       <div class="invalid-feedback">A comment is required</div>
     </div>
 

@@ -18,12 +18,12 @@ export class RatingListComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private RatingService: RatingService,
+    private ratingService: RatingService,
     private authenticationService: AuthenticationBasicService) {
   }
 
   ngOnInit(): void {
-    this.RatingService.getPage({pageParams: {size: this.pageSize }, sort: {name: 'ASC'}}).subscribe(
+    this.ratingService.getPage({pageParams: {size: this.pageSize }, sort: {name: 'ASC'}}).subscribe(
       (page: PagedResourceCollection<Rating>) => {
         this.ratingsPagedResource = page;
         this.ratings = page.resources;

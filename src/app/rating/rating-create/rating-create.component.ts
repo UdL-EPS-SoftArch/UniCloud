@@ -28,9 +28,11 @@ export class RatingCreateComponent implements OnInit{
 
   ngOnInit(): void{
     this.rating = new Rating();
+
     this.resourceService.getPage({pageParams: {size: 5 }, sort: {name: 'ASC'}}).subscribe(
       (page: PagedResourceCollection<UniResource>) => {
         this.resources = page.resources;
+        this.rating.resourceRated = this.resources[0];
         console.log(this.resources);
       });
   }
