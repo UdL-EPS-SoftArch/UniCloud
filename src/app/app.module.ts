@@ -30,6 +30,13 @@ import { DegreeEditComponent } from './degree/degree-edit/degree-edit.component'
 import { DegreeListComponent } from './degree/degree-list/degree-list.component';
 import { DegreeDeleteComponent } from './degree/degree-delete/degree-delete.component';
 import { DegreeSearchComponent } from './degree/degree-search/degree-search.component';
+import { RatingCreateComponent } from './rating/rating-create/rating-create.component';
+import { RatingDeleteComponent } from './rating/rating-delete/rating-delete.component';
+import { RatingModifyComponent } from './rating/rating-modify/rating-modify.component';
+import { RatingListComponent} from './rating/rating-list/rating-list.component';
+import { RatingSearchComponent } from './rating/rating-search/rating-search.component';
+import { RatingDetailComponent} from './rating/rating-detail/rating-detail.component';
+import { ResourceCreateComponent } from './resource/resource-create/resource-create.component';
 import { UniversityEditComponent } from './university/university-edit/university-edit.component';
 import { UniversityCreateComponent } from './university/university-create/university-create.component';
 import { UniversitySearchComponent } from './university/university-search/university-search.component';
@@ -44,6 +51,11 @@ import { SubjectListComponent } from './subject/subject-list/subject-list.compon
 import { SubjectSearchComponent } from './subject/subject-search/subject-search.component';
 import { LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
+import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
+import { ResourceDeleteComponent } from './resource/resource-delete/resource-delete.component';
+import { ResourceListComponent } from './resource/resource-list/resource-list.component';
+import { ResourceSearchComponent } from './resource/resource-search/resource-search.component';
+import { ResourceEditComponent } from './resource/resource-edit/resource-edit.component';
 import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
 import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
 import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
@@ -57,6 +69,11 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
     AppComponent,
     NavbarComponent,
     AboutComponent,
+    RatingCreateComponent,
+    RatingDeleteComponent,
+    RatingModifyComponent,
+    RatingListComponent,
+    RatingSearchComponent,
     NotFoundComponent,
     UserListComponent,
     UserDetailComponent,
@@ -70,12 +87,19 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
     DegreeListComponent,
     DegreeDeleteComponent,
     DegreeSearchComponent,
+    ResourceCreateComponent,
     UniversityEditComponent,
     UniversityCreateComponent,
     UniversitySearchComponent,
     UniversityListComponent,
     UniversityDetailComponent,
     UniversityDeleteComponent,
+    ResourceDetailComponent,
+    ResourceDeleteComponent,
+    ResourceEditComponent,
+    ResourceListComponent,
+    ResourceSearchComponent,
+    RatingDetailComponent,
     SubjectCreateComponent,
     SubjectDeleteComponent,
     SubjectDetailComponent,
