@@ -5,6 +5,7 @@ import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {RouterModule} from '@angular/router';
 import {AboutComponent} from './about/about.component';
 import {NotFoundComponent} from './error-handler/error-alert/not-found.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
@@ -23,6 +24,12 @@ import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import { DegreeCreateComponent } from './degree/degree-create/degree-create.component';
+import { DegreeDetailComponent } from './degree/degree-detail/degree-detail.component';
+import { DegreeEditComponent } from './degree/degree-edit/degree-edit.component';
+import { DegreeListComponent } from './degree/degree-list/degree-list.component';
+import { DegreeDeleteComponent } from './degree/degree-delete/degree-delete.component';
+import { DegreeSearchComponent } from './degree/degree-search/degree-search.component';
 import { UniversityEditComponent } from './university/university-edit/university-edit.component';
 import { UniversityCreateComponent } from './university/university-create/university-create.component';
 import { UniversitySearchComponent } from './university/university-search/university-search.component';
@@ -37,6 +44,13 @@ import { SubjectListComponent } from './subject/subject-list/subject-list.compon
 import { SubjectSearchComponent } from './subject/subject-search/subject-search.component';
 import { LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
+import { AdminDeleteComponent } from './admin/admin-delete/admin-delete.component';
+import { AdminDetailComponent } from './admin/admin-detail/admin-detail.component';
+import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
+import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
+import { AdminListComponent } from './admin/admin-list/admin-list.component';
+import { AdminSearchComponent } from './admin/admin-search/admin-search.component';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +64,12 @@ import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    DegreeCreateComponent,
+    DegreeDetailComponent,
+    DegreeEditComponent,
+    DegreeListComponent,
+    DegreeDeleteComponent,
+    DegreeSearchComponent,
     UniversityEditComponent,
     UniversityCreateComponent,
     UniversitySearchComponent,
@@ -61,7 +81,14 @@ import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
     SubjectDetailComponent,
     SubjectEditComponent,
     SubjectListComponent,
-    SubjectSearchComponent
+    SubjectSearchComponent,
+    UserSearchComponent,
+    AdminDeleteComponent,
+    AdminDetailComponent,
+    AdminRegisterComponent,
+    AdminEditComponent,
+    AdminListComponent,
+    AdminSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +103,7 @@ import {LoggedInStudentGuard} from './login-basic/studentLoggedIn.guard';
     ErrorHandlerModule,
     NgbModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

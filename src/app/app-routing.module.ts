@@ -14,6 +14,12 @@ import { UniversityDetailComponent} from './university/university-detail/univers
 import { UniversityEditComponent} from './university/university-edit/university-edit.component';
 import { UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 import {UniversityCreateComponent} from './university/university-create/university-create.component';
+import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
+import { DegreeListComponent} from './degree/degree-list/degree-list.component';
+import { DegreeDetailComponent} from './degree/degree-detail/degree-detail.component';
+import { DegreeCreateComponent} from './degree/degree-create/degree-create.component';
+import { DegreeEditComponent} from './degree/degree-edit/degree-edit.component';
+import { DegreeDeleteComponent} from './degree/degree-delete/degree-delete.component';
 import {SubjectCreateComponent} from './subject/subject-create/subject-create.component';
 import {SubjectListComponent} from './subject/subject-list/subject-list.component';
 import {SubjectDetailComponent} from './subject/subject-detail/subject-detail.component';
@@ -26,14 +32,19 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities/create', component: UniversityCreateComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'universities/:id', component: UniversityDetailComponent},
+  { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'universities', component: UniversityListComponent},
+  { path: 'degrees', component: DegreeListComponent},
+  { path: 'degrees/create', component: DegreeCreateComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'degrees/:id/delete', component: DegreeDeleteComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'degrees/:id/edit', component: DegreeEditComponent, canActivate: [LoggedInAdminGuard]},
+  { path: 'degrees/:id', component: DegreeDetailComponent},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
-  { path: 'universities/create', component: UniversityCreateComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities/:id', component: UniversityDetailComponent},
-  { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInGuard]},
-  { path: 'universities', component: UniversityListComponent},
 
   { path: 'subjects', component: SubjectListComponent},
   { path: 'subjects/create', component: SubjectCreateComponent, canActivate: [LoggedInAdminGuard]},
