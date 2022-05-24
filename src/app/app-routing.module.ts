@@ -14,7 +14,6 @@ import { UniversityDetailComponent} from './university/university-detail/univers
 import { UniversityEditComponent} from './university/university-edit/university-edit.component';
 import { UniversityDeleteComponent} from './university/university-delete/university-delete.component';
 import {UniversityCreateComponent} from './university/university-create/university-create.component';
-import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import { DegreeListComponent} from './degree/degree-list/degree-list.component';
 import { DegreeDetailComponent} from './degree/degree-detail/degree-detail.component';
 import { DegreeCreateComponent} from './degree/degree-create/degree-create.component';
