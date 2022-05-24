@@ -26,6 +26,14 @@
              [routerLink]="['/universities']"><span class="fas fa-user-circle"></span> List Universities</a>
         </div>
       </li>
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link dropdown-toggle" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Degrees</a>
+        <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/degrees']"><span class="fas fa-user-circle"></span> List Degrees</a>
+        </div>
+      </li>
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
   </div>
