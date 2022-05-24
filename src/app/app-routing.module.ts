@@ -35,7 +35,6 @@ import {ResourceDeleteComponent} from './resource/resource-delete/resource-delet
 import {ResourceListComponent} from './resource/resource-list/resource-list.component';
 import {ResourceEditComponent} from './resource/resource-edit/resource-edit.component';
 
-import {LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},

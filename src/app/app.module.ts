@@ -99,7 +99,7 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
     ResourceEditComponent,
     ResourceListComponent,
     ResourceSearchComponent,
-    RatingDetailComponent
+    RatingDetailComponent,
     SubjectCreateComponent,
     SubjectDeleteComponent,
     SubjectDetailComponent,
