@@ -7,16 +7,16 @@ import {Rating} from '../rating';
 
 @Component({
   selector: 'app-rating-delete',
-  templateUrl: './rating-delete.component.html'
+  templateUrl: './rating-delete.component.html',
+  styleUrls: ['./rating-delete.component.css']
 })
 export class RatingDeleteComponent implements OnInit {
   public rating: Rating = new Rating();
   private id: string;
-  private ratingService: RatingService;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private userService: RatingService,
+              private ratingService: RatingService,
               private authenticationService: AuthenticationBasicService) {
   }
 
@@ -29,8 +29,7 @@ export class RatingDeleteComponent implements OnInit {
   delete(): void {
     this.ratingService.deleteResource(this.rating).subscribe(
       () => {
-        this.authenticationService.logout();
-        this.router.navigate(['']);
+        this.router.navigate(['ratings']);
       });
   }
 }
