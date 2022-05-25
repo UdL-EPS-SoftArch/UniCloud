@@ -4,6 +4,9 @@ import { Rating } from '../rating';
 import { RatingService } from '../rating.service';
 import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
+import {map, switchMap} from "rxjs/operators";
+import {UniResource} from "../../resource/uni-resource";
+import {User} from "../../login-basic/user";
 @Component({
   selector: 'app-rating-list',
   templateUrl: './rating-list.component.html',
@@ -28,6 +31,11 @@ export class RatingListComponent implements OnInit {
         this.ratingsPagedResource = page;
         this.ratings = page.resources;
         this.totalratings = page.totalElements;
+        this.ratings.map(rating => {
+          rating.getRelation('author').subscribe((user: User) => {
+            rating.author = user;
+          });
+        });
       });
   }
 
