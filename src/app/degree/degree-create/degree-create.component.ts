@@ -32,6 +32,9 @@ export class DegreeCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.universitySelected = '/universities/' + this.universitySelected;
+    // @ts-ignore
+    this.degree.university = this.universitySelected;
     this.degreeService.createResource({ body: this.degree }).subscribe((degree: Degree) => {
       this.router.navigate(['/degrees', degree.id]);
     });
@@ -40,12 +43,6 @@ export class DegreeCreateComponent implements OnInit {
 
   onCancel(): void {
     this.location.back();
-  }
-
-  capture(): void {
-    this.universitySelected = '/universities/' + this.universitySelected;
-    // @ts-ignore
-    this.degree.university = this.universitySelected;
   }
 
 }

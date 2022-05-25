@@ -18,9 +18,9 @@
     <!-- University input -->
     <div class="form-group mb-3">
         <p class="control-label" >University*</p>
-        <select class="form-control" [(ngModel)]="universitySelected" required (change)="capture()">
+        <select class="form-select" [(ngModel)]="universitySelected" required [value]="universitySelected">
           <option disabled selected>Select one option</option>
-          <option *ngFor="let university of universities" [ngValue]="university.id">{{university.name}}</option>
+          <option *ngFor="let university of universities" [value]="university.id">{{university.name}}</option>
         </select>
     </div>
 
