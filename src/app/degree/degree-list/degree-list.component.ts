@@ -4,6 +4,7 @@ import { Degree } from '../degree';
 import { DegreeService } from '../degree.service';
 import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import {University} from '../../university/university';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 @Component({
   selector: 'app-degree-list',
   templateUrl: './degree-list.component.html',
@@ -18,7 +19,8 @@ export class DegreeListComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private degreeService: DegreeService) { }
+    private degreeService: DegreeService,
+    private authenticationService: AuthenticationBasicService) { }
 
   ngOnInit(): void {
     this.degreeService.getPage({ pageParams : { size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe(
@@ -46,4 +48,7 @@ export class DegreeListComponent implements OnInit {
     this.totalDegrees = this.degreesPagedResource.totalElements;
   }
 
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
+  }
 }
