@@ -3,6 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoggedInGuard } from './login-basic/loggedin.guard';
 import { LoggedInAdminGuard} from './login-basic/adminLoggedIn.guard';
 import { AboutComponent } from './about/about.component';
+import { RatingCreateComponent } from './rating/rating-create/rating-create.component';
+import { RatingDeleteComponent } from './rating/rating-delete/rating-delete.component';
+import { RatingModifyComponent } from './rating/rating-modify/rating-modify.component';
+import { RatingListComponent} from './rating/rating-list/rating-list.component';
+import { RatingDetailComponent} from './rating/rating-detail/rating-detail.component';
 import { NotFoundComponent } from './error-handler/error-alert/not-found.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UniversityListComponent} from './university/university-list/university-list.component';
@@ -24,6 +29,12 @@ import {SubjectListComponent} from './subject/subject-list/subject-list.componen
 import {SubjectDetailComponent} from './subject/subject-detail/subject-detail.component';
 import {SubjectEditComponent} from './subject/subject-edit/subject-edit.component';
 import {SubjectDeleteComponent} from './subject/subject-delete/subject-delete.component';
+import {ResourceCreateComponent} from './resource/resource-create/resource-create.component';
+import {ResourceDetailComponent} from './resource/resource-detail/resource-detail.component';
+import {ResourceDeleteComponent} from './resource/resource-delete/resource-delete.component';
+import {ResourceListComponent} from './resource/resource-list/resource-list.component';
+import {ResourceEditComponent} from './resource/resource-edit/resource-edit.component';
+
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -36,12 +47,22 @@ const routes: Routes = [
   { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities/:id/edit', component: UniversityEditComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities', component: UniversityListComponent},
+  { path: 'resources/create', component: ResourceCreateComponent, canActivate: [LoggedInGuard]},
+  { path: 'resources/:id', component: ResourceDetailComponent },
+  { path: 'resources/:id/delete', component: ResourceDeleteComponent },
+  { path: 'resources/:id/edit', component: ResourceEditComponent, canActivate: [LoggedInGuard]},
+  { path: 'resources', component: ResourceListComponent },
   { path: 'degrees', component: DegreeListComponent},
   { path: 'degrees/create', component: DegreeCreateComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'degrees/:id/delete', component: DegreeDeleteComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'degrees/:id/edit', component: DegreeEditComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'degrees/:id', component: DegreeDetailComponent},
   { path: 'about', component: AboutComponent},
+  { path: 'ratings/create', component: RatingCreateComponent},
+  { path: 'ratings/:id/delete', component: RatingDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'ratings/:id/edit', component: RatingModifyComponent, canActivate: [LoggedInGuard]},
+  { path: 'ratings/:id', component: RatingDetailComponent},
+  { path: 'ratings', component: RatingListComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
 
