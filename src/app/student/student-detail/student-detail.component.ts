@@ -1,32 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {AdminService} from '../admin.service';
-import {Admin} from '../admin';
+import {StudentService} from '../student.service';
+import {Student} from '../student';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 
-
 @Component({
-  selector: 'app-admin-detail',
-  templateUrl: './admin-detail.component.html',
+  selector: 'app-student-detail',
+  templateUrl: './student-detail.component.html',
 })
-export class AdminDetailComponent implements OnInit {
-  public admin: Admin = new Admin();
+export class StudentDetailComponent implements OnInit {
+  public student: Student = new Student();
 
   constructor(private route: ActivatedRoute,
-              private adminService: AdminService,
+              private studentService: StudentService,
               private authenticationService: AuthenticationBasicService) {
   }
 
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.adminService.getResource(id).subscribe(
-      admin => {
-        this.admin = admin;
+    this.studentService.getResource(id).subscribe(
+      student => {
+        this.student = student;
       });
   }
 
-  getCurrentUser(): Admin {
+  getCurrentUser(): Student {
     return this.authenticationService.getCurrentUser();
   }
 }

@@ -39,6 +39,11 @@ import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { AdminSearchComponent } from './admin/admin-search/admin-search.component';
 import { StudentDeleteComponent } from './student/student-delete/student-delete.component';
+import { StudentEditComponent } from './student/student-edit/student-edit.component';
+import { StudentListComponent } from './student/student-list/student-list.component';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentRegisterComponent } from './student/student-register/student-register.component';
+import { StudentSearchComponent } from './student/student-search/student-search.component';
 
 
 @NgModule({
@@ -67,6 +72,11 @@ import { StudentDeleteComponent } from './student/student-delete/student-delete.
     AdminListComponent,
     AdminSearchComponent,
     StudentDeleteComponent,
+    StudentEditComponent,
+    StudentListComponent,
+    StudentDetailComponent,
+    StudentRegisterComponent,
+    StudentSearchComponent,
   ],
   imports: [
     BrowserModule,
