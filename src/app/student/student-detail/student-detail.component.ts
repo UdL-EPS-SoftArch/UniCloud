@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {StudentService} from '../student.service';
 import {Student} from '../student';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
+import {Admin} from '../../admin/admin';
 
 @Component({
   selector: 'app-student-detail',
@@ -10,6 +11,7 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
 })
 export class StudentDetailComponent implements OnInit {
   public student: Student = new Student();
+  public admin: Admin = new Admin();
 
   constructor(private route: ActivatedRoute,
               private studentService: StudentService,
@@ -27,5 +29,10 @@ export class StudentDetailComponent implements OnInit {
 
   getCurrentUser(): Student {
     return this.authenticationService.getCurrentUser();
+  }
+
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
   }
 }
