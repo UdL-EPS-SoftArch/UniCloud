@@ -1,0 +1,37 @@
+<form id="resource-edit-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Name input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="name">Resource Name*</label>
+      <input id="name" name="name" type="text" class="form-control" required [(ngModel)]="resource.name">
+      <div class="invalid-feedback">A resource name is required</div>
+    </div>
+
+    <!-- Description input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="description">Description*</label>
+      <input id="description" name="description" type="text" class="form-control" required [(ngModel)]="resource.description">
+    </div>
+
+    <!-- File input -->
+
+
+    <!-- Resource type input -->
+
+
+    <!-- Student input -->
+
+
+    <!-- Subjects input -->
+
+    <!-- Button -->
+    <div class="form-group fa-pull-right">
+      <button id="resourceDetail" type="button" [routerLink]="['/resources/'+ getCurrentResourceId()]"
+              class="btn btn-outline-primary">Back</button>
+      <button id="submit" type="submit" [disabled]="!form.form.valid"
+              class="btn btn-success ms-3">Submit</button>
+    </div>
+
+  </fieldset>
+</form>
