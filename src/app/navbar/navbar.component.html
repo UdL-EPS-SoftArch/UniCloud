@@ -18,6 +18,14 @@
              [routerLink]="['/users']"><span class="fas fa-user-circle"></span> List Users</a>
         </div>
       </li>
+      <li class="nav-item" *ngIf="isStudent()" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="playerDropdown2" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Students</a>
+        <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/students']"><span class="fas fa-user-circle"></span> List Students</a>
+        </div>
+      </li>
       <li class="nav-item" ngbDropdown>
         <a class="nav-link dropdown-toggle" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Universities</a>
