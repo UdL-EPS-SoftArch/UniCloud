@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
+  { path: 'universities;search=', component: UniversityListComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities/create', component: UniversityCreateComponent, canActivate: [LoggedInAdminGuard]},
   { path: 'universities/:id', component: UniversityDetailComponent},
   { path: 'universities/:id/delete', component: UniversityDeleteComponent, canActivate: [LoggedInAdminGuard]},

@@ -44,6 +44,7 @@ import { AdminRegisterComponent } from './admin/admin-register/admin-register.co
 import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { AdminSearchComponent } from './admin/admin-search/admin-search.component';
+import { AboutSearchComponent } from './about/about-search/about-search.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { AdminSearchComponent } from './admin/admin-search/admin-search.componen
     AdminEditComponent,
     AdminListComponent,
     AdminSearchComponent,
+    AboutSearchComponent,
   ],
   imports: [
     BrowserModule,

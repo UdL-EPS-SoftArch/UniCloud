@@ -1,0 +1,8 @@
+<div class="col form-group">
+  <select name="types" *ngFor="let type of types" [(ngModel)]="searchedModel">
+    <option value="{{type}}">{{type}}</option>
+  </select>
+  <input placeholder="Search item" type="text" class="form-control" [(ngModel)]="searchedValue"/>
+  <button id="submit"
+          class="btn ms-3 btn-success pull-right" (click)="onSubmit()">Submit</button>
+</div>

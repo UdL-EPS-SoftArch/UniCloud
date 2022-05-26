@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { University } from '../university';
 import { UniversityService } from '../university.service';
@@ -15,20 +15,36 @@ export class UniversityListComponent implements OnInit {
   public pageSize = 4;
   public page = 1;
   public totalUniversities = 0;
+  public searchedValue;
 
   constructor(
     public router: Router,
+    public activatedRoute: ActivatedRoute,
     private universityService: UniversityService,
     private authenticationService: AuthenticationBasicService) {
   }
 
   ngOnInit(): void {
-    this.universityService.getPage({pageParams: {size: this.pageSize }, sort: {name: 'ASC'}}).subscribe(
-      (page: PagedResourceCollection<University>) => {
-        this.universitiesPagedResource = page;
-        this.universities = page.resources;
-        this.totalUniversities = page.totalElements;
-      });
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      console.log(params);
+      this.searchedValue = params.search;
+      if (this.searchedValue == null || this.searchedValue === '') {
+      this.universityService.getPage({pageParams: {size: this.pageSize }, sort: {name: 'ASC'}}).subscribe(
+        (page: PagedResourceCollection<University>) => {
+          this.universitiesPagedResource = page;
+          this.universities = page.resources;
+          this.totalUniversities = page.totalElements;
+        });
+      }else{
+        // tslint:disable-next-line:max-line-length
+        this.universityService.findByNameContainingOrAcronymContainingOrCountryContainingOrCityContaining(this.searchedValue, this.searchedValue, this.searchedValue, this.searchedValue, this.pageSize)
+          .subscribe((page: PagedResourceCollection<University>) => {
+          this.universitiesPagedResource = page;
+          this.universities = page.resources;
+          this.totalUniversities = page.totalElements;
+        });
+      }
+    });
   }
 
   changePage(): void{
