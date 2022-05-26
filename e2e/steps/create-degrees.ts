@@ -1,4 +1,4 @@
-import {Given, Then} from 'cypress-cucumber-preprocessor/steps';
+import {Given, Then, And} from 'cypress-cucumber-preprocessor/steps';
 
 
 Given('I click on nav item {string}', (value) => {
@@ -10,12 +10,18 @@ Given('I click on dropdown item {string}', (value) => {
 });
 
 Then('I see the data of the degree with name {string}, faculty {string} and university {string}',
-  (degreeName, degreeFaculty, degreeUni) => {
-    cy.get('#degreeName').contains(degreeName).should('exist');
-    cy.get('#degreeFaculty').contains(degreeFaculty).should('exist');
-    cy.get('#degreeUniversity').contains(degreeUni).should('exist');
+  (degName, degFaculty, degUni) => {
+    // cy.get('#degreeName').contains(degName).should('exist');
+    cy.get('#degreeFaculty').contains(degFaculty).should('exist');
+    cy.get('#degreeUni').contains(degUni).should('exist');
   });
 
 Then('The button {string} does not exists', (value) => {
   cy.get('button').contains(value).should('not.exist');
 });
+
+And('I select the university {string}', (value) => {
+  cy.get('select').select(1);
+  cy.wait(1200);
+});
+

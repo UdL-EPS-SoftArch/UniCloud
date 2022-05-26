@@ -10,12 +10,12 @@ Feature: Create Degree
     And I click on dropdown item "List Degrees"
     And I click the "Create Degree" button
     And I fill the form with
-      | FIELD     | VALUE                              |
-      | name      | Medicina                           |
-      | faculty   | Facultat de Medicina i Odontologia |
-      | univesity | Universitat de Valencia            |
+      | FIELD      | VALUE                              |
+      | name       | Medicina                           |
+      | faculty    | Facultat de Medicina i Odontologia |
+    And I select the university "ExampleName"
     And I click the "Submit" button
-    Then I see the data of the degree with name "Medicina", faculty "Facultat de Medicina i Odontologia" and university "Universitat de Valencia"
+    Then I see the data of the degree with name "Medicina", faculty "Facultat de Medicina i Odontologia" and university "ExampleName"
 
   Scenario: Create a new Degree as Student
     Given I'm in the homepage
@@ -39,8 +39,8 @@ Feature: Create Degree
     And I fill the form with
       | FIELD     | VALUE                              |
       | name      | Medicina                           |
-      | faculty   | Facultat de Medicina i Odontologia |
-      | univesity | Universitat de Valencia            |
+      | faculty   | EPS                                |
+    And I select the university "ExampleName"
     And I click the "Submit" button
     Then I see error message "Unique index or primary key violation"
 
@@ -51,9 +51,9 @@ Feature: Create Degree
     And I click on dropdown item "List Degrees"
     And I click the "Create Degree" button
     And I fill the form with
-      | FIELD          | VALUE                 |
-      | faculty        | EPS                   |
-      | university     | Universitat de Lleida |
+      | FIELD          | VALUE                                              |
+      | faculty        | Facultat de Medicina i Odontologia                 |
+    And I select the university "ExampleName"
     Then The "Submit" button is disabled
 
   Scenario: Create a new Degre with empty faculty
@@ -65,7 +65,7 @@ Feature: Create Degree
     And I fill the form with
       | FIELD      | VALUE                   |
       | name       | Medicina                |
-      | university | Universitat de Valencia |
+    And I select the university "ExampleName"
     Then The "Submit" button is disabled
 
   Scenario: Create a new Degree with empty university
