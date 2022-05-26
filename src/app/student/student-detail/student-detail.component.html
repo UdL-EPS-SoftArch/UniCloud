@@ -19,10 +19,10 @@
       <button id="listBttn" type="button" [routerLink]="['/student']"
               class="btn m-1 btn-outline-primary">Student List
       </button>
-      <button id="editBttn" type="button" *ngIf="isRole('admin')" [routerLink]="['edit']"
+      <button id="editBttn" type="button" *ngIf="isRole('admin') || isRole('student')" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
-      <button id="deleteBttn" type="button" *ngIf="isRole('admin')" [routerLink]="['delete']"
+      <button id="deleteBttn" type="button" *ngIf="isRole('admin') || isRole('student')" [routerLink]="['delete']"
               class="btn m-1 btn-outline-danger">Delete
       </button>
     </div>

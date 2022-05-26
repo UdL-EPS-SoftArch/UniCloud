@@ -44,6 +44,8 @@ import { StudentListComponent } from './student/student-list/student-list.compon
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentRegisterComponent } from './student/student-register/student-register.component';
 import { StudentSearchComponent } from './student/student-search/student-search.component';
+import {StudentService} from './student/student.service';
+import {AdminService} from './admin/admin.service';
 
 
 @NgModule({
@@ -96,7 +98,7 @@ import { StudentSearchComponent } from './student/student-search/student-search.
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    AuthenticationBasicService, LoggedInGuard, LoggedInAdminGuard, LoggedInStudentGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, LoggedInAdminGuard, LoggedInStudentGuard, UserService, StudentService, AdminService
   ],
   bootstrap: [AppComponent]
 })
