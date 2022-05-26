@@ -13,7 +13,7 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
 export class DegreeListComponent implements OnInit {
   public degreesPagedResource: PagedResourceCollection<Degree>;
   public degrees: Degree[] = [];
-  public pageSize = 5;
+  public pageSize = 2;
   public page = 1;
   public totalDegrees = 0;
 
@@ -37,8 +37,15 @@ export class DegreeListComponent implements OnInit {
   }
 
   changePage(): void {
-    this.degreesPagedResource.customPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe
-    ((page: PagedResourceCollection<Degree>) => this.degrees = page.resources);
+    this.degreesPagedResource.customPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { name: 'ASC' } }).subscribe
+    ((page: PagedResourceCollection<Degree>) => {
+      this.degrees = page.resources;
+      this.degrees.map(degree => {
+        degree.getRelation('university').subscribe((university: University) => {
+          degree.university = university;
+        });
+      });
+    });
   }
 
 
