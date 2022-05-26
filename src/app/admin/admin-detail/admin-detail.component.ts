@@ -23,6 +23,8 @@ export class AdminDetailComponent implements OnInit {
     this.adminService.getResource(id).subscribe(
       admin => {
         this.admin = admin;
+        console.log(admin.id);
+        console.log(this.getCurrentUser().id);
       });
   }
 
