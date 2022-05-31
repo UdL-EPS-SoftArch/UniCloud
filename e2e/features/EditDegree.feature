@@ -8,25 +8,25 @@ Feature: Edit Degree
     And I log in as "admin" with password "password"
     And I click on nav item "Degrees"
     And I click on dropdown item "List Degrees"
-    And I click on card-text item "Disseny Grafic"
+    And I click on card-text item "Disseny"
     When I click the "Edit" button
-    And The form is filled with degree name "Disseny Grafic" and faculty "EPS"
+    And The form is filled with degree name "Disseny" and faculty "EP"
     And I clear and fill the form with
       | FIELD      | VALUE                 |
-      | name       | Medicina              |
-      | faculty    | Facultat de Medicina  |
-    And I select the university "ExampleName"
+      | name       | Disseny Grafic        |
+      | faculty    | EPS                   |
+    And I select the university "Universidad Politecnica de Catalunya"
     And I click the "Submit" button
-    Then I see the data of the degree with name "Medicina", faculty "Facultat de Medicina" and university "ExampleName"
+    Then I see the data of the degree with name "Disseny Grafic", faculty "EPS" and university "Universidad Politecnica de Catalunya"
 
   Scenario: Edit degree with empty name
     Given I'm in the homepage
     And I log in as "admin" with password "password"
     And I click on nav item "Degrees"
     And I click on dropdown item "List Degrees"
-    And I click on card-text item "Medicina"
+    And I click on card-text item "Disseny Grafic"
     When I click the "Edit" button
-    And The form is filled with degree name "Medicina" and faculty "Facultat de Medicina"
+    And The form is filled with degree name "Disseny Grafic" and faculty "EPS"
     And I clear the "name" field
     Then The "Submit" button is disabled
 
@@ -35,9 +35,9 @@ Feature: Edit Degree
     And I log in as "admin" with password "password"
     And I click on nav item "Degrees"
     And I click on dropdown item "List Degrees"
-    And I click on card-text item "Medicina"
+    And I click on card-text item "Disseny Grafic"
     When I click the "Edit" button
-    And The form is filled with degree name "Medicina" and faculty "Facultat de Medicina"
+    And The form is filled with degree name "Disseny Grafic" and faculty "EPS"
     And I clear the "faculty" field
     Then The "Submit" button is disabled
 
@@ -46,9 +46,9 @@ Feature: Edit Degree
     And I log in as "admin" with password "password"
     And I click on nav item "Degrees"
     And I click on dropdown item "List Degrees"
-    And I click on card-text item "Medicina"
+    And I click on card-text item "Disseny Grafic"
     When I click the "Edit" button
-    And The form is filled with degree name "Medicina" and faculty "Facultat de Medicina"
+    And The form is filled with degree name "Disseny Grafic" and faculty "EPS"
     Then The "Submit" button is disabled
 
   Scenario: Edit university not authenticated
@@ -56,7 +56,7 @@ Feature: Edit Degree
     And I'm not logged in
     And I click on nav item "Degrees"
     And I click on dropdown item "List Degrees"
-    When I click on card-text item "Medicina"
+    When I click on card-text item "Disseny Grafic"
     Then The button "Edit" does not exists
 
   Scenario: Edit degree authenticated as a student
@@ -64,5 +64,5 @@ Feature: Edit Degree
     And I log in as "student" with password "password"
     And I click on nav item "Degrees"
     And I click on dropdown item "List Degrees"
-    And I click on card-text item "Medicina"
+    And I click on card-text item "Disseny Grafic"
     Then The button "Edit" does not exists
