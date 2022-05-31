@@ -37,7 +37,7 @@ export class DegreeService extends HateoasResourceOperation<Degree> {
     return this.searchCollection('findByUniversity', { params: { text: query } } );
   }
   // tslint:disable-next-line:max-line-length
-  public findByNameContainingOrFacultyContainingOrUniversityNameContaining(name: string, faculty: string, uniName:string, size: number): Observable<PagedResourceCollection<Degree>> {
+  public findByNameContainingOrFacultyContainingOrUniversityNameContaining(name: string, faculty: string, uniName: string, size: number): Observable<PagedResourceCollection<Degree>> {
     // @ts-ignore
     // tslint:disable-next-line:max-line-length
     return this.searchPage('findByNameContainingOrFacultyContainingOrUniversityNameContaining', { params: { name, faculty, uniName}, pageParams: { size }, sort: {name: 'ASC'}});
