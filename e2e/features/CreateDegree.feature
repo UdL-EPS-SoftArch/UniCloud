@@ -30,7 +30,7 @@ Feature: Create Degree
     And I click on dropdown item "List Degrees"
     Then The button "Create Degree" does not exists
 
-  Scenario: Create a new Degree with an already existing name
+  Scenario: Create a new Degree with an already existing name and same faculty
     Given I'm in the homepage
     And I log in as "admin" with password "password"
     And I click on nav item "Degrees"
@@ -39,10 +39,10 @@ Feature: Create Degree
     And I fill the form with
       | FIELD     | VALUE                              |
       | name      | Medicina                           |
-      | faculty   | EPS                                |
+      | faculty   | Facultat de Medicina i Odontologia |
     And I select the university "ExampleName"
     And I click the "Submit" button
-    Then I see error message "Unique index or primary key violation"
+    Then I see error message "Conflict"
 
   Scenario: Create a new Degree with empty name
     Given I'm in the homepage
@@ -75,7 +75,7 @@ Feature: Create Degree
     And I click on dropdown item "List Degrees"
     And I click the "Create Degree" button
     And I fill the form with
-      | FIELD    | VALUE                   |
-      | name     | Medicina                |
-      | faculty  | Universitat de Valencia |
+      | FIELD    | VALUE                              |
+      | name     | Medicina                           |
+      | faculty  | Facultat de Medicina i Odontologia |
     Then The "Submit" button is disabled
