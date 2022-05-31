@@ -15,9 +15,9 @@ Feature: Edit Degree
       | FIELD      | VALUE                 |
       | name       | Disseny Grafic        |
       | faculty    | EPS                   |
-    And I select the university "Universidad Politecnica de Catalunya"
+    And I select the university "ExampleName"
     And I click the "Submit" button
-    Then I see the data of the degree with name "Disseny Grafic", faculty "EPS" and university "Universidad Politecnica de Catalunya"
+    Then I see the data of the degree with name "Disseny Grafic", faculty "EPS" and university "ExampleName"
 
   Scenario: Edit degree with empty name
     Given I'm in the homepage
