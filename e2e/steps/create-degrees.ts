@@ -2,7 +2,6 @@ import {Given, Then, And} from 'cypress-cucumber-preprocessor/steps';
 
 
 Given('I click on nav item {string}', (value) => {
-  cy.wait(1000);
   cy.get('.nav-link').contains(value).click();
 });
 
@@ -23,6 +22,6 @@ Then('The button {string} does not exists', (value) => {
 
 And('I select the university {string}', (value) => {
   cy.get('select').select(1);
-  cy.wait(1200);
+  cy.wait(4200);
 });
 
