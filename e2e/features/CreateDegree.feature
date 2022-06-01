@@ -51,9 +51,9 @@ Feature: Create Degree
     And I click on dropdown item "List Degrees"
     And I click the "Create Degree" button
     And I fill the form with
-      | FIELD     | VALUE                              |
-      | name      | Medicina                           |
-      | faculty   | Facultat de Medicina i Odontologia |
+      | FIELD      | VALUE                              |
+      | name       | Medicina                           |
+      | faculty    | Facultat de Medicina i Odontologia |
     And I select the university "Universidad Politecnica de Catalunya"
     And I click the "Submit" button
     Then I see error message "Conflict"

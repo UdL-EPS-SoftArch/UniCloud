@@ -43,7 +43,6 @@ Then('I\'m logged in as user {string}', (username) => {
 });
 
 Then('I see error message {string}', (message) => {
-  cy.wait(1000);
   cy.get('.alert')
     .invoke('text')
     .should('contains', message);
