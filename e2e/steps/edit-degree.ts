@@ -25,8 +25,3 @@ When('I clear the {string} field', (value) => {
   cy.get('#' + value).clear();
   cy.wait(1000);
 });
-
-And('I select the university {string}', (value) => {
-  cy.get('select').select(1);
-  cy.wait(1200);
-});
