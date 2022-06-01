@@ -13,9 +13,9 @@ Feature: Create Degree
       | FIELD      | VALUE                              |
       | name       | Medicina                           |
       | faculty    | Facultat de Medicina i Odontologia |
-    And I select the university "ExampleName"
+    And I select the university "Universidad Politecnica de Catalunya"
     And I click the "Submit" button
-    Then I see the data of the degree with name "Medicina", faculty "Facultat de Medicina i Odontologia" and university "ExampleName"
+    Then I see the data of the degree with name "Medicina", faculty "Facultat de Medicina i Odontologia" and university "Universidad Politecnica de Catalunya"
 
   Scenario: Create new valid Degree as Admin 2
     Given I'm in the homepage
@@ -27,9 +27,9 @@ Feature: Create Degree
       | FIELD      | VALUE                              |
       | name       | Disseny                            |
       | faculty    | EP                                 |
-    And I select the university "ExampleName"
+    And I select the university "Universidad Politecnica de Catalunya"
     And I click the "Submit" button
-    Then I see the data of the degree with name "Disseny", faculty "EP" and university "ExampleName"
+    Then I see the data of the degree with name "Disseny", faculty "EP" and university "Universidad Politecnica de Catalunya"
 
   Scenario: Create a new Degree as Student
     Given I'm in the homepage
@@ -54,7 +54,7 @@ Feature: Create Degree
       | FIELD     | VALUE                              |
       | name      | Medicina                           |
       | faculty   | Facultat de Medicina i Odontologia |
-    And I select the university "ExampleName"
+    And I select the university "Universidad Politecnica de Catalunya"
     And I click the "Submit" button
     Then I see error message "Conflict"
 
