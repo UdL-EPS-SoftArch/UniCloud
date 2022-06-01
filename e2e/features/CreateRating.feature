@@ -1,14 +1,7 @@
 Feature: Add a rating to a resource
 
-
   Background:
-
-
-  Background:
-    Given There is a registered student with username "student" and password "password" and email "student@local.com"
-    Given There is a registered admin with username "admin" and password "password" and email "admin@local.com"
-    And There is a Subject with name "Maths",course 2 and optional "name"
-    And There is a registered resource with name "name" by the user "student", with description "description", file "example.pdf", and resource type "NOTE" for the subject name "Maths"
+    Given There is a created Resource with name "gei" by student "Marc"
 
   Scenario: Add rating when not authenticated
     Given I'm in the homepage
@@ -38,7 +31,9 @@ Feature: Add a rating to a resource
 
 
   Scenario: Add a negative rating as student when already authenticated
-    Given I login as "student" with password "password"
-    When I register a new rating with rating -3 and comment "Aproved" referenced to resource with name "name"
-    Then The response code is 400
-    And A new rating has not been created
+    Given I'm in the homepage
+    And I login as "student" with password "password"
+    And I click on nav item "Ratings"
+    And I click on dropdown item "List Rating"
+    And I fill the Rating score with "-2" and write a description with "Bad job"
+    Then The button "Submit" gets blocked
