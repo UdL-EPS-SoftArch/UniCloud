@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import {HateoasResourceOperation, ResourceCollection} from '@lagoshny/ngx-hateoas-client';
+import {HateoasResourceOperation, PagedResourceCollection, ResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import { Degree } from './degree';
+import {University} from '../university/university';
 
 
 @Injectable({
@@ -31,9 +32,14 @@ export class DegreeService extends HateoasResourceOperation<Degree> {
   public findByUniversityNameContaining(query: string): Observable<ResourceCollection<Degree>>{
     return this.searchCollection('findByUniversityNameContaining', { params: { text: query } });
   }
-  /*
-  public findByUniversity(query: university): Observable<ResourceCollection<Degree>>{
-    return this.searchCollection('findByUniversity', { params: { ??: query } } );
+
+  public findByUniversity(query: University): Observable<ResourceCollection<Degree>>{
+    return this.searchCollection('findByUniversity', { params: { text: query } } );
   }
-  */
+  // tslint:disable-next-line:max-line-length
+  public findByNameContainingOrFacultyContainingOrUniversityNameContaining(name: string, faculty: string, uniName: string, size: number): Observable<PagedResourceCollection<Degree>> {
+    // @ts-ignore
+    // tslint:disable-next-line:max-line-length
+    return this.searchPage('findByNameContainingOrFacultyContainingOrUniversityNameContaining', { params: { name, faculty, uniName}, pageParams: { size }, sort: {name: 'ASC'}});
+  }
 }

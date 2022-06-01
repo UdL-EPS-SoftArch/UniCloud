@@ -4,6 +4,7 @@ import { Degree } from '../degree';
 import { DegreeService } from '../degree.service';
 import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import {University} from '../../university/university';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 @Component({
   selector: 'app-degree-list',
   templateUrl: './degree-list.component.html',
@@ -18,7 +19,8 @@ export class DegreeListComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private degreeService: DegreeService) { }
+    private degreeService: DegreeService,
+    private authenticationService: AuthenticationBasicService) { }
 
   ngOnInit(): void {
     this.degreeService.getPage({ pageParams : { size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe(
@@ -26,17 +28,16 @@ export class DegreeListComponent implements OnInit {
         this.degreesPagedResource = page;
         this.degrees = page.resources;
         this.totalDegrees = page.totalElements;
-        this.degrees.map(degree => {
-          degree.getRelation('university').subscribe((university: University) => {
-            degree.university = university;
-          });
-        });
+        this.getUniversities();
       });
   }
 
   changePage(): void {
-    this.degreesPagedResource.customPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { degrees: 'ASC' } }).subscribe
-    ((page: PagedResourceCollection<Degree>) => this.degrees = page.resources);
+    this.degreesPagedResource.customPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { name: 'ASC' } }).subscribe
+    ((page: PagedResourceCollection<Degree>) => {
+      this.degrees = page.resources;
+      this.getUniversities();
+    });
   }
 
 
@@ -44,6 +45,18 @@ export class DegreeListComponent implements OnInit {
     this.degreesPagedResource = degreePagedResource;
     this.degrees = this.degreesPagedResource.resources;
     this.totalDegrees = this.degreesPagedResource.totalElements;
+    this.getUniversities();
   }
 
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
+  }
+
+  getUniversities(): void {
+    this.degrees.map(degree => {
+      degree.getRelation('university').subscribe((university: University) => {
+        degree.university = university;
+      });
+    });
+  }
 }
