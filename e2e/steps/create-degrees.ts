@@ -21,7 +21,7 @@ Then('The button {string} does not exists', (value) => {
 });
 
 And('I select the university {string}', (value) => {
-  cy.get('select').select(1);
+  cy.get('select').select(value);
   cy.wait(4200);
 });
 
