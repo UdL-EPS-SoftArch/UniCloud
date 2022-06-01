@@ -67,7 +67,7 @@ Feature: Create Degree
     And I fill the form with
       | FIELD          | VALUE                                              |
       | faculty        | Facultat de Medicina i Odontologia                 |
-    And I select the university "ExampleName"
+    And I select the university "Universidad Politecnica de Catalunya"
     Then The "Submit" button is disabled
 
   Scenario: Create a new Degre with empty faculty
@@ -79,7 +79,7 @@ Feature: Create Degree
     And I fill the form with
       | FIELD      | VALUE                   |
       | name       | Medicina                |
-    And I select the university "ExampleName"
+    And I select the university "Universidad Politecnica de Catalunya"
     Then The "Submit" button is disabled
 
   Scenario: Create a new Degree with empty university
