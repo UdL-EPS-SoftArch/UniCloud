@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import { Student } from '../student';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-student-list',
@@ -16,7 +17,8 @@ export class StudentListComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private studentService: StudentService) {
+    private studentService: StudentService,
+    private authenticationService: AuthenticationBasicService) {
   }
 
   ngOnInit(): void {
@@ -34,5 +36,9 @@ export class StudentListComponent implements OnInit {
 
   detail(student: Student): void {
     this.router.navigate(['students', student.id]);
+  }
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
   }
 }

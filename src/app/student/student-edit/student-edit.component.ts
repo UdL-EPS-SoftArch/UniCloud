@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {StudentService} from '../student.service';
 import {Student} from '../student';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-student-edit',
@@ -14,6 +15,7 @@ export class StudentEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private studentService: StudentService,
               private authenticationService: AuthenticationBasicService) {
   }
@@ -31,13 +33,17 @@ export class StudentEditComponent implements OnInit {
         if (this.student.passwordReset){
           this.authenticationService.logout();
           this.authenticationService.login(this.student.id, this.student.password).subscribe(
-            (student: Student) => this.router.navigate(['student', student.id]));
+            (student: Student) => this.router.navigate(['students', student.id]));
         } else {
-          this.router.navigate(['student', patchedStudent.id]);
+          this.router.navigate(['students', patchedStudent.id]);
         }
       });
   }
   getCurrentUsername(): string {
     return this.authenticationService.getCurrentUser().id;
+  }
+
+  onCancel(): void {
+    this.location.back();
   }
 }

@@ -4,6 +4,7 @@ import {StudentService} from '../student.service';
 import {Student} from '../student';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {Admin} from '../../admin/admin';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-student-detail',
@@ -15,6 +16,7 @@ export class StudentDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private studentService: StudentService,
+              private location: Location,
               private authenticationService: AuthenticationBasicService) {
   }
 
@@ -34,5 +36,9 @@ export class StudentDetailComponent implements OnInit {
 
   isRole(role: string): boolean {
     return this.authenticationService.isRole(role);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

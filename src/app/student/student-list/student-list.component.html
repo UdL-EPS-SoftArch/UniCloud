@@ -5,7 +5,7 @@
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Username</h6>
-        <a class="card-text" [routerLink]="['/student', student.id]">{{student.id}}</a>
+        <a class="card-text" [routerLink]="['/students', student.id]">{{student.id}}</a>
       </div>
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">E-mail</h6>
@@ -16,4 +16,5 @@
 </div>
 
 <ngb-pagination class="d-flex justify-content-center"
-                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalStudents"></ngb-pagination>
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalStudents"
+                (pageChange)="changePage()"></ngb-pagination>

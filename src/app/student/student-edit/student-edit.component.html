@@ -12,6 +12,7 @@
       <input id="role" name="role" type="text" class="form-control" readonly [ngModel]="student.getRoles().join(', ')">
     </div>
 
+    <!-- E-Mail input -->
     <div class="form-group mb-3" [class.was-validated]="email.dirty || email.touched">
       <label class="control-label" for="email">Email*</label>
       <input id="email" name="email" type="email" class="form-control" required
@@ -19,12 +20,14 @@
       <div class="invalid-feedback">An email is required</div>
     </div>
 
-    <div *ngIf="!student.passwordReset" class="form-check mb-3">
+    <!-- Change password checkbox -->
+    <div *ngIf="!student.passwordReset" class="form-group">
       <input id="isPasswordReset" name="isPasswordReset" type="checkbox" class="form-check-input"
              [(ngModel)]="student.passwordReset">
       <label class="form-check-label" for="isPasswordReset">Change password</label>
     </div>
 
+    <!-- Password input -->
     <div *ngIf="student.passwordReset" class="form-group mb-3" [class.was-validated]="password.dirty || password.touched">
       <label class="control-label" for="password">Password</label>
       <input id="password" name="password" type="password" class="form-control" required minlength="8" maxlength="256"
@@ -32,8 +35,9 @@
       <div class="invalid-feedback">A password longer than 8 characters is required</div>
     </div>
 
+    <!-- Role read only -->
     <div class="form-group fa-pull-right">
-      <button id="adminDetail" type="button" [routerLink]="['/student/'+getCurrentUsername()]"
+      <button id="studentDetail" type="button" (click)="onCancel()"
               class="btn btn-outline-primary">Back</button>
       <button id="submit" type="submit" [disabled]="!form.form.valid"
               class="btn btn-success ms-3">Submit</button>

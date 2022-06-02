@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {StudentService} from '../student.service';
 import {Student} from '../student';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-student-delete',
@@ -15,6 +16,7 @@ export class StudentDeleteComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private studentService: StudentService,
               private authenticationService: AuthenticationBasicService) { }
 
@@ -32,4 +34,7 @@ export class StudentDeleteComponent implements OnInit {
       });
   }
 
+  onCancel(): void {
+    this.location.back();
+  }
 }
