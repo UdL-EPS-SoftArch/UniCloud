@@ -1,0 +1,29 @@
+<app-rating-search [pageSize] = "pageSize" (emitResults)="modifyList($event)"></app-rating-search>
+<div class="card mb-1" *ngFor="let rating of ratings">
+  <div class="card-block row">
+    <div class="card-body row align-items-center">
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Comment</h6>
+        <a class="card-text" [routerLink]="['/ratings', rating.id]">{{rating.comment}}</a>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Rating</h6>
+        <p class="card-text">{{rating.rating}}</p>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Author</h6>
+        <p class="card-text">{{rating.author.id}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-footer text-right" *ngIf="isRole('admin')" >
+  <button id="createBtn" type="button" [routerLink]="['create']"
+          class="btn m-1 btn-outline-primary">Create Rating
+  </button>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalratings"
+                (pageChange)="changePage()"></ngb-pagination>
+
