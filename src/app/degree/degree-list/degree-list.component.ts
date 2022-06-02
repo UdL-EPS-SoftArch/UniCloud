@@ -63,6 +63,10 @@ export class DegreeListComponent implements OnInit {
     return this.authenticationService.isRole(role);
   }
 
+  buttonShouldAppear(): boolean {
+    return this.router.url === '/degrees';
+  }
+
   getUniversities(): void {
     this.degrees.map(degree => {
       degree.getRelation('university').subscribe((university: University) => {
