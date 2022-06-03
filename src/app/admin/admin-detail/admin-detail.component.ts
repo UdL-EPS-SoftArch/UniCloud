@@ -36,4 +36,9 @@ export class AdminDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
+  }
+
 }
