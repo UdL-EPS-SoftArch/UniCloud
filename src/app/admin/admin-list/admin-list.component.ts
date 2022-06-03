@@ -16,11 +16,12 @@ export class AdminListComponent implements OnInit {
 
   constructor(
     public router: Router,
+    private adminService: AdminService,
     private userService: AdminService) {
   }
 
   ngOnInit(): void {
-    this.userService.getPage({ pageParams:  { size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
+    this.adminService.getPage({ pageParams:  { size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
       (page: PagedResourceCollection<Admin>) => {
         this.admins = page.resources;
         this.totalAdmins = page.totalElements;
@@ -28,7 +29,7 @@ export class AdminListComponent implements OnInit {
   }
 
   changePage(): void {
-    this.userService.getPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
+    this.adminService.getPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
       (page: PagedResourceCollection<Admin>) => this.admins = page.resources);
   }
 

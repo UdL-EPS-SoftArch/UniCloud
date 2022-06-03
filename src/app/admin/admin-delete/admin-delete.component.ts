@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {AdminService} from '../admin.service';
 import {Admin} from '../admin';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-admin-delete',
@@ -15,6 +16,7 @@ export class AdminDeleteComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private adminService: AdminService,
               private authenticationService: AuthenticationBasicService) { }
 
@@ -29,5 +31,9 @@ export class AdminDeleteComponent implements OnInit{
         this.authenticationService.logout();
         this.router.navigate(['']);
       });
+
+  }
+  onCancel(): void {
+    this.location.back();
   }
 }

@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="card-footer text-right">
-        <button id="listBttn" type="button" [routerLink]="['/admin']"
+        <button id="listBttn" type="button" (click)="goBack()"
               class="btn m-1 btn-outline-primary">Admin List
       </button>
       <button id="editBttn" type="button" *ngIf="getCurrentUser().id === admin.id" [routerLink]="['edit']"

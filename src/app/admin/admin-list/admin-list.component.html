@@ -16,4 +16,5 @@
 </div>
 
 <ngb-pagination class="d-flex justify-content-center"
-                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalAdmins"></ngb-pagination>
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalAdmins"
+                (pageChange)="changePage()"></ngb-pagination>

@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {AdminService} from '../admin.service';
 import {Admin} from '../admin';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class AdminDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private adminService: AdminService,
+              private location: Location,
               private authenticationService: AuthenticationBasicService) {
   }
 
@@ -30,5 +32,8 @@ export class AdminDetailComponent implements OnInit {
 
   getCurrentUser(): Admin {
     return this.authenticationService.getCurrentUser();
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

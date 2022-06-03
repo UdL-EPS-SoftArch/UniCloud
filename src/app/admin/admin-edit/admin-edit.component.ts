@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {AdminService} from '../admin.service';
 import {Admin} from '../admin';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-admin-edit',
@@ -14,6 +15,7 @@ export class AdminEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private adminService: AdminService,
               private authenticationService: AuthenticationBasicService) {
   }
@@ -39,5 +41,8 @@ export class AdminEditComponent implements OnInit {
   }
   getCurrentUsername(): string {
     return this.authenticationService.getCurrentUser().id;
+  }
+  onCancel(): void {
+    this.location.back();
   }
 }
