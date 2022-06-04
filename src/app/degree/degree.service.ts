@@ -32,8 +32,11 @@ export class DegreeService extends HateoasResourceOperation<Degree> {
   public findByUniversityNameContaining(query: string): Observable<ResourceCollection<Degree>>{
     return this.searchCollection('findByUniversityNameContaining', { params: { text: query } });
   }
+  public findByUniversity(query: string): Observable<ResourceCollection<Degree>> {
+    return this.searchCollection('findByUniversity', {params: {university: 'universities/' + query}});
+  }
 
-  public findByUniversity(query: University): Observable<ResourceCollection<Degree>>{
+  public findByUniversityInstance(query: University): Observable<ResourceCollection<Degree>>{
     return this.searchCollection('findByUniversity', { params: { text: query } } );
   }
   // tslint:disable-next-line:max-line-length
@@ -42,4 +45,5 @@ export class DegreeService extends HateoasResourceOperation<Degree> {
     // tslint:disable-next-line:max-line-length
     return this.searchPage('findByNameContainingOrFacultyContainingOrUniversityNameContaining', { params: { name, faculty, uniName}, pageParams: { size }, sort: {name: 'ASC'}});
   }
+
 }

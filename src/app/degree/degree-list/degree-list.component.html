@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-<div class="card-footer text-right" *ngIf="isRole('admin')" >
+<div class="card-footer text-right" *ngIf="buttonShouldAppear() && isRole('admin')" >
   <button id="createBtn" type="button" [routerLink]="['create']"
           class="btn m-1 btn-outline-primary">Create Degree
   </button>
