@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PagedResourceCollection} from '@lagoshny/ngx-hateoas-client';
 import {Subject} from '../subject';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {SubjectService} from '../subject.service';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 
@@ -16,8 +16,10 @@ export class SubjectListComponent implements OnInit {
   public pageSize = 5;
   public page = 1;
   public totalSubjects = 0;
+  public searchedValue;
 
   constructor(public router: Router,
+              public activatedRoute: ActivatedRoute,
               private subjectService: SubjectService,
               private authenticationService: AuthenticationBasicService) {
   }
