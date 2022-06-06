@@ -15,7 +15,7 @@ Feature: Create Subject
       | course   | 1             |
       | optional | True          |
     And I click the "Submit" button
-    Then I see the data of the subject with name "Algerba", course 1 and optional "True"
+    Then I see the data of the subject with name "Algebra", course "1" and optional "True"
 
   Scenario: Create a new Subject as Student
     Given I'm in the homepage
