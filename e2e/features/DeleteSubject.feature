@@ -7,6 +7,7 @@ Feature: Delete Subject
     Given I'm in the homepage
     And I log in as "admin" with password "password"
     And I click on nav item "Subjects"
+    And I click on dropdown item "List Subjects"
     And I wait for the "Algebra" content to appear
     And I click on the "Algebra" link
     And I wait for the "Algebra" content to appear
@@ -27,7 +28,7 @@ Feature: Delete Subject
 
   Scenario: Delete Subject not authenticated
     Given I'm in the homepage
-    And I log in as "student" with password "password"
+    And I'm not logged in
     And I click on nav item "Subjects"
     And I click on dropdown item "List Subjects"
     And I wait for the "IA" content to appear
