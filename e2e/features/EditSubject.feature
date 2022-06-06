@@ -10,14 +10,14 @@ Feature: Edit Subject
     And I click on dropdown item "List Subjects"
     And I click on card-text item "Algebra"
     When I click the "Edit" button
-    And The form is filled with subject name "Algebra", course "1" and optional "True"
+    And The form is filled with subject name "Algebra", course "1" and optional "true"
     And I clear and fill the form with
       | FIELD           | VALUE                 |
       | name            | Algebra               |
       | course          | 1                     |
       | optional        | True                  |
     And I click the "Submit" button
-    Then I see the data of the subject with name "Algebra", course "1" and optional "True"
+    Then I see the data of the subject with name "Algebra", course "1" and optional "true"
 
   Scenario: Edit subject with empty name
     Given I'm in the homepage
@@ -26,7 +26,7 @@ Feature: Edit Subject
     And I click on dropdown item "List Subjects"
     And I click on card-text item "Algebra"
     When I click the "Edit" button
-    And The form is filled with subject name "Algebra", course "1" and optional "True"
+    And The form is filled with subject name "Algebra", course "1" and optional "true"
     And I clear the "name" field
     Then The "Submit" button is disabled
 
@@ -37,7 +37,7 @@ Feature: Edit Subject
     And I click on dropdown item "List Subjects"
     And I click on card-text item "Algebra"
     When I click the "Edit" button
-    And The form is filled with subject name "Algebra", course "1" and optional "True"
+    And The form is filled with subject name "Algebra", course "1" and optional "true"
     And I clear the "course" field
     Then The "Submit" button is disabled
 
@@ -48,7 +48,7 @@ Feature: Edit Subject
     And I click on dropdown item "List Subjects"
     And I click on card-text item "Algebra"
     When I click the "Edit" button
-    And The form is filled with subject name "Algebra", course "1" and optional "True"
+    And The form is filled with subject name "Algebra", course "1" and optional "true"
     And I clear the "optional" field
     Then The "Submit" button is disabled
 
