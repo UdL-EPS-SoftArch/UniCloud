@@ -9,7 +9,7 @@ Given('I click on card-text item {string}', (value) => {
   cy.get('.card-text').contains(value).click();
 });
 
-When('The form is filled with subject name {string}, course {number} and optional {string}',
+When('The form is filled with subject name {string}, course {string} and optional {string}',
   (subjectName, subjectCourse, subjectOptional) => {
   cy.get('#name').should('have.value', subjectName);
   cy.get('#course').should('have.value', subjectCourse);
