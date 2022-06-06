@@ -11,11 +11,11 @@ Feature: Create Subject
     And I click the "Create Subject" button
     And I fill the form with
       | FIELD    | VALUE         |
-      | name     | ExampleName   |
+      | name     | Algebra  |
       | course   | 1             |
       | optional | True          |
     And I click the "Submit" button
-    Then I see the data of the subject with name "ExampleName", course "1" and optional "true"
+    Then I see the data of the subject with name "Algebra", course "1" and optional "true"
 
   Scenario: Create a new Subject as Student
     Given I'm in the homepage
