@@ -17,6 +17,11 @@
   </div>
 </div>
 
+<div class="card-footer text-right" *ngIf="isRole('admin')">
+  <button id="createBtn" type="button" [routerLink]="['create']"
+          class="btn m-1 btn-outline-primary">Create Subject</button>
+</div>
+
 <ngb-pagination class="d-flex justify-content-center"
                 [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalSubjects"
                 (pageChange)="changePage()"></ngb-pagination>
