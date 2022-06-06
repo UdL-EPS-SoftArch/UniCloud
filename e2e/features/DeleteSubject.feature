@@ -21,9 +21,9 @@ Feature: Delete Subject
     And I log in as "student" with password "password"
     And I click on nav item "Subjects"
     And I click on dropdown item "List Subjects"
-    And I wait for the "IA" content to appear
-    And I click on the "IA" link
-    And I wait for the "IA" content to appear
+    And I wait for the "Algebra" content to appear
+    And I click on the "Algebra" link
+    And I wait for the "Algebra" content to appear
     And The button "Delete" does not exists
 
   Scenario: Delete Subject not authenticated
@@ -31,9 +31,9 @@ Feature: Delete Subject
     And I'm not logged in
     And I click on nav item "Subjects"
     And I click on dropdown item "List Subjects"
-    And I wait for the "IA" content to appear
-    And I click on the "IA" link
-    And I wait for the "IA" content to appear
+    And I wait for the "Algebra" content to appear
+    And I click on the "Algebra" link
+    And I wait for the "Algebra" content to appear
     And The button "Delete" does not exists
 
 
