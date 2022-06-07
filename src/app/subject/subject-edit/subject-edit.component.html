@@ -1,0 +1,34 @@
+<form id="subject-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!--Name input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="name">Subject Name*</label>
+      <input id="name" name="name" type="text" class="form-control" required [(ngModel)]="subject.name">
+      <div class="invalid-feedback">A subject name is required</div>
+    </div>
+
+    <!--Course input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="course">Course*</label>
+      <input id="course" name="course" type="text" class="form-control" required [(ngModel)]="subject.course">
+      <div class="invalid-feedback">A course is required</div>
+    </div>
+
+    <!--Optional input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="name">Optional*</label>
+      <input id="optional" name="optional" type="text" class="form-control" required [(ngModel)]="subject.optional">
+      <div class="invalid-feedback">An optional is required</div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group fa-pull-right" >
+      <button id="userDetail" type="button" [routerLink]="['/subjects/'+getCurrentSubjectID()]"
+              class="btn btn-outline-primary">Back</button>
+      <button id="submit" type="submit" [disabled]="!form.form.valid"
+              class="btn btn-success ms-3 ">Submit</button>
+    </div>
+
+  </fieldset>
+</form>

@@ -1,0 +1,28 @@
+<app-degree-search [pageSize] = "pageSize" (emitResults)="modifyList($event)"></app-degree-search>
+<div class="card mb-1" *ngFor="let degree of degrees">
+  <div class="card-block row">
+    <div class="card-body row align-items-center">
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Degree</h6>
+        <a class="card-text" [routerLink]="['/degrees', degree.id]">{{degree.name}}</a>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Faculty</h6>
+        <p class="card-text">{{degree.faculty}}</p>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">University</h6>
+        <a class="card-text" [routerLink]="['../universities', degree.university.id]">{{degree.university.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-footer text-right" *ngIf="buttonShouldAppear() && isRole('admin')" >
+  <button id="createBtn" type="button" [routerLink]="['create']"
+          class="btn m-1 btn-outline-primary">Create Degree
+  </button>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalDegrees"
+                (pageChange)="changePage()"></ngb-pagination>

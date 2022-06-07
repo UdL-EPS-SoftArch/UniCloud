@@ -1,0 +1,27 @@
+<div class="card mb-4">
+  <div class="card-block">
+    <h4 id="degreeName" class="card-title col-md-12 p-3">{{degree.name}}</h4>
+    <div class="card-body row m-1">
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted">Faculty</h6>
+        <p id="degreeFaculty" class="card-text">{{degree.faculty}}</p>
+      </div>
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted">University</h6>
+        <a id="degreeUni" class="card-text" [routerLink]="['../../universities', degree.university.id]">{{degree.university.name}}</a>
+      </div>
+    </div>
+    <div class="card-footer text-right">
+      <button id="listBtn" type="button" [routerLink]="['/degrees']"
+              class="btn m-1 btn-outline-primary">Degree List
+      </button>
+      <button id="editBtn" type="button" *ngIf="isRole('admin')" [routerLink]="['edit']"
+              class="btn m-1 btn-outline-success">Edit
+      </button>
+      <button id="deleteBtn" type="button" *ngIf="isRole('admin')" [routerLink]="['delete']"
+              class="btn m-1 btn-outline-danger">Delete
+      </button>
+    </div>
+  </div>
+</div>
+
