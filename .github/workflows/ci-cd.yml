@@ -28,7 +28,19 @@ jobs:
           npm run lint
           npx start-server-and-test start http-get://localhost:4200 'cypress run --record --key ${{ secrets.CYPRESS_KEY }}'
           npm run build -- --configuration production
-      - name: Build Dock er image and deploy to Heroku
+      - name: Upload Cypress screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots
+      - name: Upload Cypress videos
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+      - name: Build Docker image and deploy to Heroku
         if: ${{ github.event_name == 'push' }}
         uses: jctaveras/heroku-deploy@v2.1.1
         with:
