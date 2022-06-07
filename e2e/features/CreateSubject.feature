@@ -11,7 +11,7 @@ Feature: Create Subject
     And I click the "Create Subject" button
     And I fill the form with
       | FIELD    | VALUE         |
-      | name     | Algebra  |
+      | name     | Algebra       |
       | course   | 1             |
       | optional | True          |
     And I click the "Submit" button
