@@ -15,6 +15,11 @@ Then('I see the data of the subject with name {string}, course {string} and opti
   cy.get('#subjectOptional').contains(subjectOptional).should('exist');
   });
 
+Then('There is not a subject with name {string}',
+  (subjectName) => {
+    cy.get('a.card-text').contains(subjectName).should('not.exist');
+  });
+
 Then('The button {string} does not exists', (value) => {
   cy.get('button').contains(value).should('not.exist');
 });
