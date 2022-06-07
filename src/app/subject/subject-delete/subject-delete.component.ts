@@ -28,7 +28,7 @@ export class SubjectDeleteComponent implements OnInit {
   delete(): void {
     this.subjectService.deleteResource(this.subject).subscribe(
       () => {
-      this.router.navigate(['/subjects']);
+      this.router.navigate(['subjects']);
     });
   }
 }

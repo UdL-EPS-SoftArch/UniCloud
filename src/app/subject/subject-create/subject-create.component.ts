@@ -23,8 +23,8 @@ export class SubjectCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.subjectService.createResource( {body: this.subject}).subscribe((subject: Subject) => this.router
-      .navigate(['subjects', subject.id]));
+    this.subjectService.createResource( {body: this.subject}).subscribe((subject: Subject) => this.router.
+    navigate(['subjects', subject.id]));
   }
 
   onCancel(): void {

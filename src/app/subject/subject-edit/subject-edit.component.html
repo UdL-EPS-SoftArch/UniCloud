@@ -10,22 +10,22 @@
 
     <!--Course input -->
     <div class="form-group mb-3">
-      <label class="control-label" for="course">Subject Course*</label>
-      <input id="course" name="course" type="number" class="form-control" required [(ngModel)]="subject.course">
-      <div class="invalid-feedback">A subject course is required</div>
+      <label class="control-label" for="course">Course*</label>
+      <input id="course" name="course" type="text" class="form-control" required [(ngModel)]="subject.course">
+      <div class="invalid-feedback">A course is required</div>
     </div>
 
     <!--Optional input -->
     <div class="form-group mb-3">
-      <label class="control-label" for="name">Subject Optional*</label>
+      <label class="control-label" for="name">Optional*</label>
       <input id="optional" name="optional" type="text" class="form-control" required [(ngModel)]="subject.optional">
-      <div class="invalid-feedback">A subject optional is required</div>
+      <div class="invalid-feedback">An optional is required</div>
     </div>
 
     <!-- Button -->
     <div class="form-group fa-pull-right" >
       <button id="userDetail" type="button" [routerLink]="['/subjects/'+getCurrentSubjectID()]"
-              class="btn btn-outline-primary pull-right">Back</button>
+              class="btn btn-outline-primary">Back</button>
       <button id="submit" type="submit" [disabled]="!form.form.valid"
               class="btn btn-success ms-3 ">Submit</button>
     </div>

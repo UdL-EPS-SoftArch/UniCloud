@@ -4,7 +4,7 @@ import { HateoasResource, Resource} from '@lagoshny/ngx-hateoas-client';
 export class Subject extends Resource{
   id: string;
   name: string;
-  course: number;
+  course: string;
   optional: boolean;
 
   constructor(values: object = {}) {

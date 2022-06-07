@@ -10,7 +10,7 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
   styleUrls: ['./subject-detail.component.css']
 })
 export class SubjectDetailComponent implements OnInit {
-  public subject: Subject = new Subject();
+  public subject: Subject;
 
   constructor(private route: ActivatedRoute,
               private subjectService: SubjectService,
