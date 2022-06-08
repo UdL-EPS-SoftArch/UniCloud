@@ -1,20 +1,20 @@
-<app-admin-search (emitResults)="detail($event)"></app-admin-search>
+<app-student-search (emitResults)="detail($event)"></app-student-search>
 
-<div class="card mb-1" *ngFor="let admin of admins | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+<div class="card mb-1" *ngFor="let student of students | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
   <div class="card-block row m-1 col-12">
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Username</h6>
-        <a class="card-text" [routerLink]="['/admins', admin.id]">{{admin.id}}</a>
+        <a class="card-text" [routerLink]="['/students', student.id]">{{student.id}}</a>
       </div>
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">E-mail</h6>
-        <p class="card-text">{{admin.email}}</p>
+        <p class="card-text">{{student.email}}</p>
       </div>
     </div>
   </div>
 </div>
 
 <ngb-pagination class="d-flex justify-content-center"
-                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalAdmins"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalStudents"
                 (pageChange)="changePage()"></ngb-pagination>

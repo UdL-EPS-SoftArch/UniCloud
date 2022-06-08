@@ -3,14 +3,14 @@
 
     <!----- Type User --->
     <div class="form-group">
-      <p>You are being registered as an admin</p>
-      <button id="UserRegisterBtn" type="button" [routerLink]="['/admins/create']" class="btn m-1 btn-outline-primary">Register as an Admin</button>
+      <p>You are being registered as a student</p>
+      <button id="UserRegisterBtn" type="button" [routerLink]="['/students/create']" class="btn m-1 btn-outline-primary">Register as a Student</button>
     </div>
 
     <div class="form-group mb-3" [class.was-validated]="username.dirty || username.touched">
       <label class="control-label" for="username">Username*</label>
       <input id="username" name="username" type="text" class="form-control" required
-             [(ngModel)]="admin.id" #username="ngModel">
+             [(ngModel)]="student.id" #username="ngModel">
       <div class="invalid-feedback">A username is required</div>
     </div>
 
@@ -18,14 +18,14 @@
     <div class="form-group mb-3" [class.was-validated]="email.dirty || email.touched">
       <label class="control-label" for="username">E-Mail*</label>
       <input id="email" name="email" type="email" class="form-control" required email
-             [(ngModel)]="admin.email" #email="ngModel">
+             [(ngModel)]="student.email" #email="ngModel">
       <div class="invalid-feedback">An e-mail is required</div>
 
       <!-- Password input -->
       <div class="form-group mb-3" [class.was-validated]="password.dirty || password.touched">
         <label class="control-label" for="password">Password*</label>
         <input id="password" name="password" type="password" class="form-control" required minlength="8" maxlength="256"
-               [(ngModel)]="admin.password" #password="ngModel">
+               [(ngModel)]="student.password" #password="ngModel">
         <div class="invalid-feedback">A password longer than 8 characters is required</div>
       </div>
     </div>

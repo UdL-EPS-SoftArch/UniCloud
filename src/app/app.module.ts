@@ -63,6 +63,14 @@ import { AdminEditComponent } from './admin/admin-edit/admin-edit.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { AdminSearchComponent } from './admin/admin-search/admin-search.component';
 import { AboutSearchComponent } from './about/about-search/about-search.component';
+import { StudentDeleteComponent } from './student/student-delete/student-delete.component';
+import { StudentEditComponent } from './student/student-edit/student-edit.component';
+import { StudentListComponent } from './student/student-list/student-list.component';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentRegisterComponent } from './student/student-register/student-register.component';
+import { StudentSearchComponent } from './student/student-search/student-search.component';
+import {StudentService} from './student/student.service';
+import {AdminService} from './admin/admin.service';
 
 
 @NgModule({
@@ -114,6 +122,12 @@ import { AboutSearchComponent } from './about/about-search/about-search.componen
     AdminEditComponent,
     AdminListComponent,
     AdminSearchComponent,
+    StudentDeleteComponent,
+    StudentEditComponent,
+    StudentListComponent,
+    StudentDetailComponent,
+    StudentRegisterComponent,
+    StudentSearchComponent,
     AboutSearchComponent,
   ],
   imports: [
@@ -134,7 +148,7 @@ import { AboutSearchComponent } from './about/about-search/about-search.componen
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    AuthenticationBasicService, LoggedInGuard, LoggedInStudentGuard, LoggedInAdminGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, LoggedInAdminGuard, LoggedInStudentGuard, UserService, StudentService, AdminService
   ],
   bootstrap: [AppComponent]
 })

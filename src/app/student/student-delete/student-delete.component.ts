@@ -1,38 +1,39 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
-import {AdminService} from '../admin.service';
-import {Admin} from '../admin';
+import {StudentService} from '../student.service';
+import {Student} from '../student';
 import {Location} from '@angular/common';
 
 @Component({
-  selector: 'app-admin-delete',
-  templateUrl: './admin-delete.component.html',
+  selector: 'app-student-delete',
+  templateUrl: './student-delete.component.html',
 })
-export class AdminDeleteComponent implements OnInit{
+export class StudentDeleteComponent implements OnInit {
 
-  public admin: Admin = new Admin();
+  public student: Student = new Student();
   private id: string;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private location: Location,
-              private adminService: AdminService,
+              private studentService: StudentService,
               private authenticationService: AuthenticationBasicService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.adminService.getResource(this.id).subscribe(
-      admin => this.admin = admin);
+    this.studentService.getResource(this.id).subscribe(
+      student => this.student = student);
   }
+
   delete(): void{
-    this.adminService.deleteResource(this.admin).subscribe(
+    this.studentService.deleteResource(this.student).subscribe(
       () => {
         this.authenticationService.logout();
         this.router.navigate(['']);
       });
-
   }
+
   onCancel(): void {
     this.location.back();
   }

@@ -41,4 +41,9 @@ export class UserEditComponent implements OnInit {
   getCurrentUserName(): string {
     return this.authenticationService.getCurrentUser().id;
   }
+
+
+  isRole(role: string): boolean {
+    return this.authenticationService.isRole(role);
+  }
 }
