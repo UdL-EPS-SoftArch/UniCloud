@@ -1,9 +1,5 @@
-import {Given, When, Then, And} from 'cypress-cucumber-preprocessor/steps';
+import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps';
 import { DataTable } from '@cucumber/cucumber';
-
-Given('I\'m in the homepage', () => {
-  cy.visit('http://localhost:4200/degrees/1');
-});
 
 Given('I click on nav item {string}', (value) => {
   cy.get('.card-text').contains(value).click();
@@ -28,6 +24,10 @@ When('I clear the {string} button', (value) => {
 When('I click the {string} checkbox', (value) => {
   cy.get('#' + value).click();
   cy.wait(1000);
+});
+
+Then('I\'m redirected to path {string}', (value) => {
+  cy.location('pathname').should('eq', value);
 });
 
 Then('I see the admin page with email {string}', (value) => {
