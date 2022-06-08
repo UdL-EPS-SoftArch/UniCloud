@@ -1,8 +1,8 @@
 <div class="col form-group">
-  <select name="types" *ngFor="let type of types" [(ngModel)]="searchedModel">
+  <select name="types" *ngFor="let type of types" required [(ngModel)]="searchedModel">
     <option value="{{type}}">{{type}}</option>
   </select>
-  <input placeholder="Search item" type="text" class="form-control" [(ngModel)]="searchedValue"/>
+  <input id="MainSearch" placeholder="Search item" type="text" class="form-control" required [(ngModel)]="searchedValue"/>
 
   <div class="card-footer text-right">
     <button id="submit" type="button"
