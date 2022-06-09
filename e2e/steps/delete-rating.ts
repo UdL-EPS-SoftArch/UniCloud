@@ -4,6 +4,6 @@ Then('The first rating is not listed', (value) => {
   cy.get('a').contains(value).should('not.exist');
 });
 
-Then('The {String} button is blocked', (value) => {
+Then('The {string} button is blocked', (value) => {
   cy.contains(value).should('be.disabled');
 });
