@@ -3,6 +3,7 @@ import { UniResource } from '../uni-resource';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import {UniResourceService} from '../uni-resource.service';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-resource-create',
@@ -14,7 +15,8 @@ export class ResourceCreateComponent implements OnInit {
 
   constructor(private router: Router,
               private location: Location,
-              private resourceService: UniResourceService) {
+              private resourceService: UniResourceService,
+              private authenticationBasicService: AuthenticationBasicService) {
   }
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class ResourceCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.resource.owner = this.authenticationBasicService.getCurrentUser();
     this.resourceService.createResource({ body: this.resource }).subscribe(
       (resource: UniResource) => this.router.navigate(['resources', resource.id]));
   }

@@ -1,4 +1,5 @@
 import { HateoasResource, Resource } from '@lagoshny/ngx-hateoas-client';
+import {User} from '../login-basic/user';
 
 @HateoasResource('resources')
 export class UniResource extends Resource {
@@ -7,7 +8,7 @@ export class UniResource extends Resource {
   description: string;
   file: string | ArrayBuffer;
   resourceType: string;
-  // owner: Student;
+  owner: User;
   // subjects: Subject[] = []
 
   constructor(values: object = {}) {
