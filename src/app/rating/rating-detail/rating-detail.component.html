@@ -19,7 +19,7 @@
       <button id="listBtn" type="button" [routerLink]="['/ratings']"
               class="btn m-1 btn-outline-primary">Ratings List
       </button>
-      <button id="editBtn" type="button" [routerLink]="['edit']"
+      <button id="editBtn" type="button" *ngIf="isRole('student')" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
       <button id="deleteBtn" type="button"  [routerLink]="['delete']"
