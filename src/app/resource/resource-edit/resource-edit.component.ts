@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import {UniResource} from '../uni-resource';
 import {UniResourceService} from '../uni-resource.service';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-resource-edit',
@@ -14,7 +15,8 @@ export class ResourceEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private resourceService: UniResourceService) { }
+              private resourceService: UniResourceService,
+              private authenticationBasicService: AuthenticationBasicService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -33,6 +35,7 @@ export class ResourceEditComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.resource.owner = this.authenticationBasicService.getCurrentUser();
     this.resourceService.patchResource(this.resource).subscribe(
       (patchedResource: UniResource) => {
         this.router.navigate(['resources', patchedResource.id]);
