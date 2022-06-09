@@ -23,4 +23,8 @@ export class NavbarComponent implements OnInit {
   isAdmin(): boolean {
     return this.authenticationService.getCurrentUser().getRoles().includes('admin');
   }
+
+  isStudent(): boolean {
+    return this.authenticationService.getCurrentUser().getRoles().includes('student');
+  }
 }

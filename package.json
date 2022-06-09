@@ -1,5 +1,5 @@
 {
-  "name": "UniCloud",
+  "name": "unicloud",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -25,8 +25,8 @@
     "@angular/router": "~13.3.3",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@lagoshny/ngx-hateoas-client": "^3.1.0",
-    "@ng-bootstrap/ng-bootstrap": "^12.0.2",
-    "@popperjs/core": "^2.10.2",
+    "@ng-bootstrap/ng-bootstrap": "^12.1.2",
+    "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.1.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
@@ -41,7 +41,7 @@
     "@angular-eslint/template-parser": "13.2.1",
     "@angular/cli": "~13.3.3",
     "@angular/compiler-cli": "~13.3.3",
-    "@cucumber/cucumber": "^8.0.0",
+    "@cucumber/cucumber": "^8.2.2",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "@cypress/webpack-preprocessor": "^5.11.1",
     "@types/jasmine": "~3.6.0",
@@ -49,7 +49,7 @@
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
     "codelyzer": "^6.0.0",
-    "cypress": "^9.6.1",
+    "cypress": "^10.0.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "^8.12.0",
     "jasmine-core": "~3.6.0",
@@ -64,5 +64,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.6.3"
-  }
+  },
+  "description": "[![Open Issues](https://img.shields.io/github/issues-raw/UdL-EPS-SoftArch/UniCloud?logo=github)](https://github.com/orgs/UdL-EPS-SoftArch/projects/13)\r [![CI/CD](https://github.com/UdL-EPS-SoftArch/UniCloud/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UdL-EPS-SoftArch/UniCloud/actions)\r [![UniCloud](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/ps5jws&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/ps5jws/runs)\r [![Heroku App Status](https://heroku-shields.herokuapp.com/unicloud)](https://unicloud.herokuapp.com)",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UdL-EPS-SoftArch/UniCloud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UdL-EPS-SoftArch/UniCloud/issues"
+  },
+  "homepage": "https://github.com/UdL-EPS-SoftArch/UniCloud#readme"
 }

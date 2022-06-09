@@ -10,7 +10,7 @@ import {AuthenticationBasicService} from '../../login-basic/authentication-basic
   styleUrls: ['./university-detail.component.css']
 })
 export class UniversityDetailComponent implements OnInit {
-  public university: University = new University();
+  public university: University;
 
   constructor(private route: ActivatedRoute,
               private universityService: UniversityService,

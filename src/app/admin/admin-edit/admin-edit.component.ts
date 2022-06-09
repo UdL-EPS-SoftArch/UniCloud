@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {AdminService} from '../admin.service';
 import {Admin} from '../admin';
+import {Location} from '@angular/common';
+import {University} from '../../university/university';
 
 @Component({
   selector: 'app-admin-edit',
@@ -14,6 +16,7 @@ export class AdminEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private adminService: AdminService,
               private authenticationService: AuthenticationBasicService) {
   }
@@ -31,13 +34,15 @@ export class AdminEditComponent implements OnInit {
         if (this.admin.passwordReset){
           this.authenticationService.logout();
           this.authenticationService.login(this.admin.id, this.admin.password).subscribe(
-            (admin: Admin) => this.router.navigate(['admin', admin.id]));
-        } else {
-          this.router.navigate(['admin', patchedAdmin.id]);
+            (admin: Admin) => this.router.navigate(['admins', admin.id]));
         }
+        this.router.navigate(['admins', patchedAdmin.id]);
       });
   }
   getCurrentUsername(): string {
     return this.authenticationService.getCurrentUser().id;
+  }
+  onCancel(): void {
+    this.location.back();
   }
 }

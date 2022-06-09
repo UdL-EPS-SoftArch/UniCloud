@@ -12,17 +12,17 @@
       </div>
       <div class="col-md-4 p-3">
         <h6 class="card-subtitle text-muted">Role</h6>
-        <!--<p class="card-text">{{user.getRoles().join(', ')}}</p>-->
+        <!-- <p class="card-text">{{user.getRoles().join(', ')}}</p> -->
       </div>
     </div>
     <div class="card-footer text-right">
       <button id="listBtn" type="button" [routerLink]="['/users']"
               class="btn m-1 btn-outline-primary">User List
       </button>
-      <button id="editBtn" type="button" *ngIf="getCurrentUser().id === user.id" [routerLink]="['edit']"
+      <button id="editBtn" type="button" *ngIf="isRole('admin') || getCurrentUser().id === user.id" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
-      <button id="deleteBtn" type="button" *ngIf="getCurrentUser().id === user.id" [routerLink]="['delete']"
+      <button id="deleteBtn" type="button" *ngIf="isRole('admin') || getCurrentUser().id === user.id" [routerLink]="['delete']"
               class="btn m-1 btn-outline-danger">Delete
       </button>
     </div>

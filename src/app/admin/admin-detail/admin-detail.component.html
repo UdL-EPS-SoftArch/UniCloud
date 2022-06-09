@@ -8,21 +8,21 @@
       </div>
       <div class="col-md-4 p-3">
         <h6 class="card-subtitle text-muted">Email</h6>
-        <p class="card-text">{{admin.email}}</p>
+        <p id="email" class="card-text">{{admin.email}}</p>
       </div>
       <div class="col-md-4 p-3">
         <h6 class="card-subtitle text-muted">Role</h6>
-        <p class="card-text">{{admin.getRoles().join(', ')}}</p>
+        <!-- <p class="card-text">{{admin.getRoles().join(', ')}}</p> -->
       </div>
     </div>
     <div class="card-footer text-right">
-      <button id="listBttn" type="button" [routerLink]="['/admin']"
+        <button id="listBttn" type="button" (click)="goBack()"
               class="btn m-1 btn-outline-primary">Admin List
       </button>
-      <button id="editBttn" type="button" *ngIf="getCurrentUser().id === admin.id" [routerLink]="['edit']"
+      <button id="editBttn" type="button" *ngIf="isRole('admin')" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
-      <button id="deleteBttn" type="button" *ngIf="getCurrentUser().id === admin.id" [routerLink]="['delete']"
+      <button id="deleteBttn" type="button" *ngIf="isRole('admin')" [routerLink]="['delete']"
               class="btn m-1 btn-outline-danger">Delete
       </button>
     </div>

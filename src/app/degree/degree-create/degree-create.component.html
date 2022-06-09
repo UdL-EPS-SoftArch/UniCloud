@@ -1,0 +1,36 @@
+<form id="degree-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Name input -->
+    <div class="form-group mb-3" >
+      <label class="control-label" for="name">Degree Name*</label>
+      <input id="name" name="name" type="text" class="form-control" required [(ngModel)]="degree.name" #name="ngModel">
+      <div class="invalid-feedback">A degree name is required</div>
+    </div>
+
+    <!-- Faculty input -->
+    <div class="form-group mb-3">
+      <label class="control-label" for="faculty">Faculty*</label>
+      <input id="faculty" name="faculty" type="text" class="form-control" required [(ngModel)]="degree.faculty" #faculty="ngModel">
+      <div class="invalid-feedback">A faculty is required</div>
+    </div>
+
+    <!-- University input -->
+    <div class="form-group mb-3">
+        <p class="control-label" >University*</p>
+        <select class="form-select" [(ngModel)]="universitySelected" required [value]="universitySelected">
+          <option disabled selected>Select one option</option>
+          <option *ngFor="let university of universities" [value]="university.id">{{university.name}}</option>
+        </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group fa-pull-right">
+      <button id="listBtn" type="button" (click)="onCancel()"
+              class="btn btn-outline-primary pull-right">Back</button>
+      <button id="submit" type="submit" [disabled]="!form.form.valid"
+              class="btn ms-3 btn-success pull-right">Submit</button>
+    </div>
+
+  </fieldset>
+</form>

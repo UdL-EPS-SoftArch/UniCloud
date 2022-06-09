@@ -29,8 +29,9 @@ When('I fill the form with', (table: DataTable) => {
  });
 
 When('I click the {string} button', (label) => {
-    cy.get('button').contains(label).click();
-  });
+  cy.get('button').contains(label).click();
+  cy.wait(1000);
+});
 
 When('I click on the {string} link', (label) => {
   cy.get('a').contains(label).click();
@@ -43,6 +44,7 @@ Then('I\'m logged in as user {string}', (username) => {
 });
 
 Then('I see error message {string}', (message) => {
+  cy.wait(1000);
   cy.get('.alert')
     .invoke('text')
     .should('contains', message);
