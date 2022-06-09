@@ -23,7 +23,11 @@
     </div>
 
     <!-- Resource type input -->
-
+    <div class="form-group mb-3" >
+      <label class="control-label" for="fileType">Resource file type*</label>
+      <input id="fileType" name="fileType" type="text" class="form-control" required [(ngModel)]="resource.resourceType" #name="ngModel">
+      <div class="invalid-feedback">A resource type is required</div>
+    </div>
 
     <!-- Student input -->
 

@@ -6,7 +6,7 @@ export class UniResource extends Resource {
   name: string;
   description: string;
   file: string | ArrayBuffer;
-  resourceType: ResourceType;
+  resourceType: string;
   // owner: Student;
   // subjects: Subject[] = []
 
@@ -15,10 +15,4 @@ export class UniResource extends Resource {
     Object.assign(this as any, values);
   }
 
-}
-
-enum ResourceType {
-  assignment,
-  test,
-  note
 }
