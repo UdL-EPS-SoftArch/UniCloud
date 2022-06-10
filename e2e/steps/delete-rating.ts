@@ -1,6 +1,6 @@
 import {Then, And} from 'cypress-cucumber-preprocessor/steps';
 
-Then('The first rating is not listed', (value) => {
+Then('The rating with comment {string} is not listed', (value) => {
   cy.get('a').contains(value).should('not.exist');
 });
 

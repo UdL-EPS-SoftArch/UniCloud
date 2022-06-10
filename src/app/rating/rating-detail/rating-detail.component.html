@@ -22,7 +22,7 @@
       <button id="editBtn" type="button" *ngIf="isRole('student')" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
-      <button id="deleteBtn" type="button"  [routerLink]="['delete']"
+      <button id="deleteBtn" type="button" *ngIf="isRole('admin') || isRole('student')"  [routerLink]="['delete']"
               class="btn m-1 btn-outline-danger">Delete
       </button>
     </div>
