@@ -36,3 +36,4 @@ Feature: Create University
     And I click on the "Universidad Politecnica de Catalunya" link
     And I wait for the "Universidad Politecnica de Catalunya" content to appear
     And The button "Delete" does not exists
+
