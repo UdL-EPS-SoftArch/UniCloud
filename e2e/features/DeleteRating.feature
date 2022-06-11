@@ -5,19 +5,19 @@ Feature: Delete Rating
     And I log in as "admin" with password "password"
     And I click on nav item "Rating"
     And I click on dropdown item "List Ratings"
-    And I click on card-text item "el magic"
-    And I wait for the "el magic" content to appear
+    And I click on card-text item "deletable rating"
+    And I wait for the "deletable rating" content to appear
     And I click the "Delete" button
     #And I wait for the "Please, confirm deletion:" content to appear
-    Then The rating with comment "el magic" is not listed
+    Then The rating with comment "deletable rating" is not listed
 
   Scenario: Delete Rating when not authenticated
     Given I'm in the homepage
     And I'm not logged in
     And I click on nav item "Rating"
     And I click on dropdown item "List Ratings"
-    And I click on card-text item "el magic"
-    And I wait for the "el magic" content to appear
+    And I click on card-text item "deletable rating"
+    And I wait for the "deletable rating" content to appear
     Then The button "Delete" does not exist
 
 
