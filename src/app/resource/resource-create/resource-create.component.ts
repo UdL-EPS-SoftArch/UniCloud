@@ -36,7 +36,7 @@ export class ResourceCreateComponent implements OnInit {
   onSubmit(): void {
     this.resource.owner = this.authenticationBasicService.getCurrentUser();
     this.resourceService.createResource({ body: this.resource }).subscribe(
-      (resource: UniResource) => this.router.navigate(['resources', resource.id]));
+      (resource: UniResource) => this.router.navigate([resource.uri]));
   }
 
   onCancel(): void {

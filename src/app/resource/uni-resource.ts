@@ -3,7 +3,7 @@ import {User} from '../login-basic/user';
 
 @HateoasResource('resources')
 export class UniResource extends Resource {
-  id: string;
+  uri: string;
   name: string;
   description: string;
   file: string | ArrayBuffer;

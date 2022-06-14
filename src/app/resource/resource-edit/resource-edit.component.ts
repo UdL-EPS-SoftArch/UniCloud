@@ -38,12 +38,7 @@ export class ResourceEditComponent implements OnInit {
     this.resource.owner = this.authenticationBasicService.getCurrentUser();
     this.resourceService.patchResource(this.resource).subscribe(
       (patchedResource: UniResource) => {
-        this.router.navigate(['resources', patchedResource.id]);
+        this.router.navigate([patchedResource.uri]);
       });
   }
-
-  getCurrentResourceId(): string {
-    return this.resource.id;
-  }
-
 }
