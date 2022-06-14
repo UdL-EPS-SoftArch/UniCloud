@@ -27,7 +27,7 @@ export class ResourceDetailComponent implements OnInit {
     ).subscribe((owner: User) => this.resource.owner = owner );
   }
 
-  isRole(role: string): boolean {
-    return this.authenticationService.isRole(role);
+  isOwner(owner: User): boolean {
+    return this.authenticationService.getCurrentUser().id === owner?.id;
   }
 }
