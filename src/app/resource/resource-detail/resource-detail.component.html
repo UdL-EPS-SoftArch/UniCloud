@@ -6,16 +6,23 @@
         <h6 class="card-subtitle text-muted">Description</h6>
         <p class="card-text">{{resource.description}}</p>
       </div>
-      <!-- Rest of attributes-->
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted">Resource type</h6>
+        <p class="card-text">{{resource.resourceType}}</p>
+      </div>
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted">Owner</h6>
+        <p class="card-text">{{resource.owner?.id}}</p>
+      </div>
     </div>
     <div class="card-footer text-right">
       <button id="listBtn" type="button" [routerLink]="['/resources']"
               class="btn m-1 btn-outline-primary">Resources List
       </button>
-      <button id="editBtn" type="button" *ngIf="isRole('admin')" [routerLink]="['edit']"
+      <button id="editBtn" type="button" *ngIf="isOwner(resource.owner)" [routerLink]="['edit']"
               class="btn m-1 btn-outline-success">Edit
       </button>
-      <button id="deleteBtn" type="button" *ngIf="isRole('admin')" [routerLink]="['delete']"
+      <button id="deleteBtn" type="button" *ngIf="isOwner(resource.owner)" [routerLink]="['delete']"
               class="btn m-1 btn-outline-danger">Delete
       </button>
     </div>

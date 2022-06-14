@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {UniResource} from '../uni-resource';
 import {UniResourceService} from '../uni-resource.service';
+import { switchMap } from 'rxjs/operators';
+import { User } from '../../login-basic/user';
 
 
 @Component({
@@ -20,13 +22,12 @@ export class ResourceDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.resourceService.getResource(id).subscribe(
-      resource => {
-        this.resource = resource;
-      });
+    this.resourceService.getResource(id).pipe(
+        switchMap(resource => { this.resource = resource; return resource.getRelation('owner'); })
+    ).subscribe((owner: User) => this.resource.owner = owner );
   }
 
-  isRole(role: string): boolean {
-    return this.authenticationService.isRole(role);
+  isOwner(owner: User): boolean {
+    return this.authenticationService.getCurrentUser().id === owner?.id;
   }
 }

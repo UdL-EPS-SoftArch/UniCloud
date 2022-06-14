@@ -4,6 +4,7 @@ import {PagedResourceCollection, ResourceCollection} from '@lagoshny/ngx-hateoas
 import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 import {UniResourceService} from '../uni-resource.service';
 import {UniResource} from '../uni-resource';
+import {User} from '../../login-basic/user';
 
 @Component({
   selector: 'app-resource-list',
@@ -27,6 +28,11 @@ export class ResourceListComponent implements OnInit {
         this.resourcesPagedResource = page;
         this.resources = page.resources;
         this.totalResources = page.totalElements;
+        this.resources.map(resource => {
+          resource.getRelation('owner').subscribe((user: User) => {
+            resource.owner = user;
+          });
+        });
       });
   }
 

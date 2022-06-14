@@ -1,16 +1,23 @@
-<app-resource-search [pageSize] = "pageSize" (emitResults)="modifyList($event)"></app-resource-search>
+<!-- app-resource-search [pageSize] = "pageSize" (emitResults)="modifyList($event)"></app-resource-search -->
 <div class="card mb-1" *ngFor="let resource of resources">
   <div class="card-block row">
     <div class="card-body row align-items-center">
       <div class="col">
         <h6 class="card-subtitle text-muted">Resource</h6>
-        <a class="card-text" [routerLink]="['/resources', resource.id]">{{resource.name}}</a>
+        <a class="card-text" [routerLink]="[resource.uri]">{{resource.name}}</a>
       </div>
       <div class="col">
         <h6 class="card-subtitle text-muted">Description</h6>
         <p class="card-text">{{resource.description}}</p>
       </div>
-      <!-- Rest of attributes-->
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Resource type</h6>
+        <p class="card-text">{{resource.resourceType}}</p>
+      </div>
+      <div class="col">
+        <h6 class="card-subtitle text-muted">Owner</h6>
+        <p class="card-text">{{resource.owner?.id}}</p>
+      </div>
     </div>
   </div>
 </div>

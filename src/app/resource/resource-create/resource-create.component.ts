@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UniResource } from '../uni-resource';
 import { Router } from '@angular/router';
-import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { Location } from '@angular/common';
 import {UniResourceService} from '../uni-resource.service';
+import {AuthenticationBasicService} from '../../login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-resource-create',
@@ -15,16 +15,28 @@ export class ResourceCreateComponent implements OnInit {
 
   constructor(private router: Router,
               private location: Location,
-              private resourceService: UniResourceService) {
+              private resourceService: UniResourceService,
+              private authenticationBasicService: AuthenticationBasicService) {
   }
 
   ngOnInit(): void {
     this.resource = new UniResource();
   }
 
+  addDataFile(event): void {
+    const fileList: FileList = event.target.files;
+    const FileToUpload: File = fileList[0];
+    const reader = new FileReader();
+    reader.readAsText(FileToUpload);
+    reader.onloadend = (e) => {
+      this.resource.file = reader.result;
+    };
+  }
+
   onSubmit(): void {
+    this.resource.owner = this.authenticationBasicService.getCurrentUser();
     this.resourceService.createResource({ body: this.resource }).subscribe(
-      (resource: UniResource) => this.router.navigate(['resources', resource.id]));
+      (resource: UniResource) => this.router.navigate([resource.uri]));
   }
 
   onCancel(): void {

@@ -72,7 +72,6 @@ import { StudentSearchComponent } from './student/student-search/student-search.
 import {StudentService} from './student/student.service';
 import {AdminService} from './admin/admin.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
